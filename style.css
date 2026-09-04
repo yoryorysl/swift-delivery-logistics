@@ -641,3 +641,20 @@ footer strong {
     }
 
 }
+/* SERVICE BOOKING BUTTONS */
+
+.service-content .btn {
+    display: inline-block;
+    background: #f5a623;
+    color: #071a2d;
+    padding: 12px 20px;
+    border-radius: 7px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.service-content .btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
