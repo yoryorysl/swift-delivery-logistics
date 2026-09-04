@@ -308,3 +308,210 @@ function trackShipment(event) {
 
     `;
 }
+const shippingCalculator =
+    document.getElementById("shippingCalculator");
+
+
+if (shippingCalculator) {
+
+    shippingCalculator.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const origin =
+                document.getElementById("origin").value;
+
+            const destination =
+                document.getElementById("destination").value;
+
+            const weight =
+                parseFloat(
+                    document.getElementById("weight").value
+                );
+
+            const method =
+                document.getElementById("shippingMethod").value;
+
+
+            const result =
+                document.getElementById("shippingResult");
+
+
+            if (
+                !origin ||
+                !destination ||
+                !weight ||
+                !method
+            ) {
+
+                result.innerHTML = `
+                    <div class="shipment-card"
+                         style="margin-top:20px;">
+
+                        <h3>
+                            Please complete all fields.
+                        </h3>
+
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            if (weight <= 0) {
+
+                result.innerHTML = `
+                    <div class="shipment-card"
+                         style="margin-top:20px;">
+
+                        <h3>
+                            Please enter a valid weight.
+                        </h3>
+
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            /*
+                DEMO PRICING
+
+                These prices are for the
+                website calculator demonstration.
+            */
+
+            let rate;
+
+
+            if (method === "express") {
+
+                rate = 25;
+
+            } else if (method === "standard") {
+
+                rate = 15;
+
+            } else {
+
+                rate = 10;
+
+            }
+
+
+            let distanceFee = 0;
+
+
+            if (origin !== destination) {
+
+                distanceFee = 20;
+
+            }
+
+
+            const total =
+                (weight * rate) + distanceFee;
+
+
+            result.innerHTML = `
+
+                <div class="shipment-card"
+                     style="margin-top:20px;">
+
+                    <div class="shipment-header">
+
+                        <h3>
+                            Estimated Shipping Cost
+                        </h3>
+
+                        <span class="status-badge">
+                            Estimate
+                        </span>
+
+                    </div>
+
+
+                    <div class="shipment-info">
+
+
+                        <div class="info-box">
+
+                            <small>
+                                Route
+                            </small>
+
+                            <strong>
+                                ${origin} → ${destination}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <small>
+                                Package Weight
+                            </small>
+
+                            <strong>
+                                ${weight} kg
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <small>
+                                Shipping Method
+                            </small>
+
+                            <strong>
+                                ${
+                                    method === "express"
+                                    ? "Express Delivery"
+                                    : method === "standard"
+                                    ? "Standard Delivery"
+                                    : "Freight Shipping"
+                                }
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-box">
+
+                            <small>
+                                Estimated Cost
+                            </small>
+
+                            <strong>
+                                $${total.toFixed(2)}
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <p>
+                        This is an estimated price.
+                        Final shipping costs may vary
+                        depending on package dimensions,
+                        destination and other factors.
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+}
