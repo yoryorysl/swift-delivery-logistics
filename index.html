@@ -277,6 +277,210 @@
     </div>
 
 </section>
+    <!-- BOOK A SHIPMENT -->
+
+<section class="section booking-section" id="booking">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>Book a Shipment</h2>
+            <p>
+                Schedule your shipment by providing the
+                required package and delivery information.
+            </p>
+        </div>
+
+        <div class="shipment-card">
+
+            <form id="bookingForm">
+
+                <h3>Sender Information</h3>
+
+                <div class="shipment-info">
+
+                    <div class="info-box">
+                        <label for="senderName">
+                            Sender Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="senderName"
+                            placeholder="Enter sender name"
+                            required
+                        >
+                    </div>
+
+                    <div class="info-box">
+                        <label for="senderPhone">
+                            Sender Phone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="senderPhone"
+                            placeholder="Enter phone number"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <h3>Recipient Information</h3>
+
+                <div class="shipment-info">
+
+                    <div class="info-box">
+                        <label for="recipientName">
+                            Recipient Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="recipientName"
+                            placeholder="Enter recipient name"
+                            required
+                        >
+                    </div>
+
+                    <div class="info-box">
+                        <label for="recipientPhone">
+                            Recipient Phone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="recipientPhone"
+                            placeholder="Enter phone number"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <h3>Shipment Details</h3>
+
+                <div class="shipment-info">
+
+                    <div class="info-box">
+
+                        <label for="bookingOrigin">
+                            Pickup Location
+                        </label>
+
+                        <select id="bookingOrigin" required>
+
+                            <option value="">
+                                Select location
+                            </option>
+
+                            <option value="Lagos, Nigeria">
+                                Lagos, Nigeria
+                            </option>
+
+                            <option value="Abuja, Nigeria">
+                                Abuja, Nigeria
+                            </option>
+
+                            <option value="Benin City, Nigeria">
+                                Benin City, Nigeria
+                            </option>
+
+                            <option value="Port Harcourt, Nigeria">
+                                Port Harcourt, Nigeria
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <label for="bookingDestination">
+                            Delivery Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="bookingDestination"
+                            placeholder="Enter destination"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <label for="packageWeight">
+                            Package Weight (kg)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="packageWeight"
+                            min="0.1"
+                            step="0.1"
+                            placeholder="e.g. 5"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <label for="pickupDate">
+                            Preferred Pickup Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="pickupDate"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <label for="packageDescription">
+                        Package Description
+                    </label>
+
+                    <textarea
+                        id="packageDescription"
+                        rows="4"
+                        placeholder="Describe the items being shipped..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn"
+                >
+                    Confirm Shipment Booking
+                </button>
+
+            </form>
+
+            <div id="bookingResult"></div>
+
+        </div>
+
+    </div>
+
+</section>
 <!-- SERVICES -->
 
 <section class="section" id="services">
