@@ -106,7 +106,177 @@
 
 </section>
 
+<!-- SHIPPING CALCULATOR -->
 
+<section class="section" id="calculator">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>Shipping Cost Calculator</h2>
+
+            <p>
+                Get an estimated shipping cost for your package.
+            </p>
+
+        </div>
+
+
+        <div class="tracking-box">
+
+            <form id="shippingCalculator">
+
+                <div class="shipment-info">
+
+                    <div class="info-box">
+
+                        <small>Origin</small>
+
+                        <select id="origin"
+                                style="
+                                width:100%;
+                                padding:12px;
+                                border:1px solid #d0d5dd;
+                                border-radius:6px;
+                                ">
+
+                            <option value="">
+                                Select origin
+                            </option>
+
+                            <option value="Nigeria">
+                                Nigeria
+                            </option>
+
+                            <option value="United Kingdom">
+                                United Kingdom
+                            </option>
+
+                            <option value="United States">
+                                United States
+                            </option>
+
+                            <option value="Canada">
+                                Canada
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <small>Destination</small>
+
+                        <select id="destination"
+                                style="
+                                width:100%;
+                                padding:12px;
+                                border:1px solid #d0d5dd;
+                                border-radius:6px;
+                                ">
+
+                            <option value="">
+                                Select destination
+                            </option>
+
+                            <option value="Nigeria">
+                                Nigeria
+                            </option>
+
+                            <option value="United Kingdom">
+                                United Kingdom
+                            </option>
+
+                            <option value="United States">
+                                United States
+                            </option>
+
+                            <option value="Canada">
+                                Canada
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <small>Package Weight (kg)</small>
+
+                        <input
+                            type="number"
+                            id="weight"
+                            min="0.1"
+                            step="0.1"
+                            placeholder="e.g. 5"
+                            style="
+                            width:100%;
+                            padding:12px;
+                            border:1px solid #d0d5dd;
+                            border-radius:6px;
+                            "
+                        >
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <small>Shipping Method</small>
+
+                        <select id="shippingMethod"
+                                style="
+                                width:100%;
+                                padding:12px;
+                                border:1px solid #d0d5dd;
+                                border-radius:6px;
+                                ">
+
+                            <option value="">
+                                Select shipping method
+                            </option>
+
+                            <option value="express">
+                                Express Delivery
+                            </option>
+
+                            <option value="standard">
+                                Standard Delivery
+                            </option>
+
+                            <option value="freight">
+                                Freight Shipping
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+
+                    Calculate Shipping Cost
+
+                </button>
+
+            </form>
+
+
+            <div id="shippingResult"></div>
+
+        </div>
+
+    </div>
+
+</section>
 <!-- SERVICES -->
 
 <section class="section" id="services">
