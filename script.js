@@ -534,11 +534,17 @@ if (bookingForm) {
             const recipientName =
                 document.getElementById("recipientName").value.trim();
 
-            const bookingOrigin =
-                document.getElementById("bookingOrigin").value;
+            const bookingCountry =
+    document.getElementById("bookingCountry").value;
 
-            const bookingDestination =
-                document.getElementById("bookingDestination").value.trim();
+const bookingDestinationCountry =
+    document.getElementById("bookingDestinationCountry").value;
+
+const pickupAddress =
+    document.getElementById("pickupAddress").value.trim();
+
+const deliveryAddress =
+    document.getElementById("deliveryAddress").value.trim();
 
             const packageWeight =
                 parseFloat(
@@ -555,14 +561,16 @@ if (bookingForm) {
                 document.getElementById("bookingResult");
 
             if (
-                !senderName ||
-                !recipientName ||
-                !bookingOrigin ||
-                !bookingDestination ||
-                !packageWeight ||
-                !pickupDate ||
-                !packageDescription
-            ) {
+    !senderName ||
+    !recipientName ||
+    !bookingCountry ||
+    !bookingDestinationCountry ||
+    !pickupAddress ||
+    !deliveryAddress ||
+    !packageWeight ||
+    !pickupDate ||
+    !packageDescription
+) {
 
                 bookingResult.innerHTML = `
                     <div class="shipment-card"
@@ -623,10 +631,10 @@ if (bookingForm) {
                     <p>
                         Route:
                         <strong>
-                            ${bookingOrigin}
-                            →
-                            ${bookingDestination}
-                        </strong>
+    ${pickupAddress}, ${bookingCountry}
+    →
+    ${deliveryAddress}, ${bookingDestinationCountry}
+</strong>
                     </p>
 
                     <p>
