@@ -515,3 +515,142 @@ if (shippingCalculator) {
     );
 
 }
+/* BOOKING FORM */
+
+const bookingForm =
+    document.getElementById("bookingForm");
+
+if (bookingForm) {
+
+    bookingForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+            const senderName =
+                document.getElementById("senderName").value.trim();
+
+            const recipientName =
+                document.getElementById("recipientName").value.trim();
+
+            const bookingOrigin =
+                document.getElementById("bookingOrigin").value;
+
+            const bookingDestination =
+                document.getElementById("bookingDestination").value.trim();
+
+            const packageWeight =
+                parseFloat(
+                    document.getElementById("packageWeight").value
+                );
+
+            const pickupDate =
+                document.getElementById("pickupDate").value;
+
+            const packageDescription =
+                document.getElementById("packageDescription").value.trim();
+
+            const bookingResult =
+                document.getElementById("bookingResult");
+
+            if (
+                !senderName ||
+                !recipientName ||
+                !bookingOrigin ||
+                !bookingDestination ||
+                !packageWeight ||
+                !pickupDate ||
+                !packageDescription
+            ) {
+
+                bookingResult.innerHTML = `
+                    <div class="shipment-card"
+                         style="margin-top:20px;">
+
+                        <h3>
+                            Please complete all required fields.
+                        </h3>
+
+                    </div>
+                `;
+
+                return;
+            }
+
+            if (packageWeight <= 0) {
+
+                bookingResult.innerHTML = `
+                    <div class="shipment-card"
+                         style="margin-top:20px;">
+
+                        <h3>
+                            Please enter a valid package weight.
+                        </h3>
+
+                    </div>
+                `;
+
+                return;
+            }
+
+            const referenceNumber =
+                "SDL-" +
+                Math.floor(
+                    10000 + Math.random() * 90000
+                );
+
+            bookingResult.innerHTML = `
+
+                <div class="booking-success">
+
+                    <h3>
+                        Shipment Booking Received ✓
+                    </h3>
+
+                    <p>
+                        Thank you,
+                        <strong>${senderName}</strong>.
+                        Your shipment request has been
+                        successfully submitted.
+                    </p>
+
+                    <p>
+                        Recipient:
+                        <strong>${recipientName}</strong>
+                    </p>
+
+                    <p>
+                        Route:
+                        <strong>
+                            ${bookingOrigin}
+                            →
+                            ${bookingDestination}
+                        </strong>
+                    </p>
+
+                    <p>
+                        Package Weight:
+                        <strong>
+                            ${packageWeight} kg
+                        </strong>
+                    </p>
+
+                    <p class="booking-reference">
+                        Booking Reference:
+                        ${referenceNumber}
+                    </p>
+
+                    <p>
+                        Please keep this reference number
+                        for your records.
+                    </p>
+
+                </div>
+            `;
+
+            bookingForm.reset();
+
+        }
+    );
+}
