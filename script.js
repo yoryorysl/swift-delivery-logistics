@@ -8,25 +8,39 @@ function trackShipment(event) {
     event.preventDefault();
 
     const trackingNumber =
-        document.getElementById("trackingNumber").value.trim().toUpperCase();
+        document.getElementById("trackingNumber")
+        .value
+        .trim()
+        .toUpperCase();
 
     const result =
         document.getElementById("trackingResult");
 
+
     if (trackingNumber === "") {
+
         result.innerHTML = `
-            <p style="color:#c62828;">
-                Please enter a tracking number.
-            </p>
+            <div class="tracking-result">
+
+                <div class="shipment-card">
+
+                    <h3>Please enter a tracking number.</h3>
+
+                </div>
+
+            </div>
         `;
+
         return;
     }
 
-    /*
-       DEMO SHIPMENT DATABASE
 
-       These are sample shipments for learning.
-       Later we can connect this to a real database.
+    /*
+        DEMO SHIPMENT DATABASE
+
+        These are sample shipments.
+        Later we will connect this
+        to a real database.
     */
 
     const shipments = {
@@ -37,7 +51,8 @@ function trackShipment(event) {
             destination: "London, United Kingdom",
             location: "London Distribution Center",
             status: "In Transit",
-            delivery: "September 8, 2026"
+            delivery: "September 8, 2026",
+            step: 3
         },
 
         "SDL-10002": {
@@ -46,7 +61,8 @@ function trackShipment(event) {
             destination: "New York, USA",
             location: "New York Sorting Facility",
             status: "Out for Delivery",
-            delivery: "September 5, 2026"
+            delivery: "September 5, 2026",
+            step: 5
         },
 
         "SDL-10003": {
@@ -55,7 +71,8 @@ function trackShipment(event) {
             destination: "Toronto, Canada",
             location: "Toronto Distribution Center",
             status: "Processing",
-            delivery: "September 10, 2026"
+            delivery: "September 10, 2026",
+            step: 1
         },
 
         "SDL-10004": {
@@ -64,7 +81,8 @@ function trackShipment(event) {
             destination: "Paris, France",
             location: "Paris Delivery Hub",
             status: "Delivered",
-            delivery: "September 3, 2026"
+            delivery: "September 3, 2026",
+            step: 6
         }
 
     };
@@ -76,25 +94,27 @@ function trackShipment(event) {
     if (!shipment) {
 
         result.innerHTML = `
-            <div style="
-                margin-top:20px;
-                padding:20px;
-                background:#fff3f3;
-                border-radius:10px;
-                border:1px solid #ffd1d1;
-            ">
+            <div class="tracking-result">
 
-                <h3>Shipment Not Found</h3>
+                <div class="shipment-card">
 
-                <p>
-                    We couldn't find a shipment matching:
-                </p>
+                    <div class="shipment-header">
 
-                <strong>${trackingNumber}</strong>
+                        <h3>Shipment Not Found</h3>
 
-                <p style="margin-top:10px;">
-                    Please check your tracking number and try again.
-                </p>
+                    </div>
+
+                    <p>
+                        We couldn't find a shipment matching
+                        <strong>${trackingNumber}</strong>.
+                    </p>
+
+                    <p>
+                        Please check the tracking number
+                        and try again.
+                    </p>
+
+                </div>
 
             </div>
         `;
@@ -103,96 +123,184 @@ function trackShipment(event) {
     }
 
 
+    const steps = [
+
+        "Shipment Created",
+
+        "Package Picked Up",
+
+        "Departed Origin",
+
+        "In Transit",
+
+        "Out for Delivery",
+
+        "Delivered"
+
+    ];
+
+
+    let timelineHTML = "";
+
+
+    steps.forEach((stepName, index) => {
+
+        const stepNumber = index + 1;
+
+        let className = "";
+
+
+        if (stepNumber < shipment.step) {
+
+            className = "completed";
+
+        } else if (stepNumber === shipment.step) {
+
+            className = "active";
+
+        }
+
+
+        timelineHTML += `
+
+            <div class="timeline-item ${className}">
+
+                <div class="timeline-dot"></div>
+
+                <h4>${stepName}</h4>
+
+                <p>
+                    ${
+                        stepNumber < shipment.step
+                        ? "Completed"
+                        : stepNumber === shipment.step
+                        ? "Current shipment status"
+                        : "Pending"
+                    }
+                </p>
+
+            </div>
+
+        `;
+
+    });
+
+
     result.innerHTML = `
 
-        <div style="
-            margin-top:25px;
-            padding:25px;
-            background:white;
-            border-radius:12px;
-            box-shadow:0 5px 20px rgba(0,0,0,0.08);
-        ">
+        <div class="tracking-result">
 
-            <h2 style="margin-bottom:15px;">
-                Shipment Details
-            </h2>
+            <div class="shipment-card">
 
 
-            <p>
-                <strong>Tracking Number:</strong>
-                ${trackingNumber}
-            </p>
+                <div class="shipment-header">
+
+                    <h3>
+                        Shipment Details
+                    </h3>
+
+                    <span class="status-badge">
+                        ${shipment.status}
+                    </span>
+
+                </div>
 
 
-            <p>
-                <strong>Recipient:</strong>
-                ${shipment.recipient}
-            </p>
+                <div class="shipment-info">
 
 
-            <p>
-                <strong>Origin:</strong>
-                ${shipment.origin}
-            </p>
+                    <div class="info-box">
+
+                        <small>
+                            Tracking Number
+                        </small>
+
+                        <strong>
+                            ${trackingNumber}
+                        </strong>
+
+                    </div>
 
 
-            <p>
-                <strong>Destination:</strong>
-                ${shipment.destination}
-            </p>
+                    <div class="info-box">
+
+                        <small>
+                            Recipient
+                        </small>
+
+                        <strong>
+                            ${shipment.recipient}
+                        </strong>
+
+                    </div>
 
 
-            <p>
-                <strong>Current Location:</strong>
-                ${shipment.location}
-            </p>
+                    <div class="info-box">
+
+                        <small>
+                            Origin
+                        </small>
+
+                        <strong>
+                            ${shipment.origin}
+                        </strong>
+
+                    </div>
 
 
-            <p>
-                <strong>Status:</strong>
+                    <div class="info-box">
 
-                <span style="
-                    font-weight:bold;
-                    color:#f5a623;
-                ">
-                    ${shipment.status}
-                </span>
+                        <small>
+                            Destination
+                        </small>
 
-            </p>
+                        <strong>
+                            ${shipment.destination}
+                        </strong>
 
-
-            <p>
-                <strong>Estimated Delivery:</strong>
-                ${shipment.delivery}
-            </p>
+                    </div>
 
 
-            <hr style="
-                margin:25px 0;
-                border:none;
-                border-top:1px solid #ddd;
-            ">
+                    <div class="info-box">
+
+                        <small>
+                            Current Location
+                        </small>
+
+                        <strong>
+                            ${shipment.location}
+                        </strong>
+
+                    </div>
 
 
-            <h3>Shipment Progress</h3>
+                    <div class="info-box">
+
+                        <small>
+                            Estimated Delivery
+                        </small>
+
+                        <strong>
+                            ${shipment.delivery}
+                        </strong>
+
+                    </div>
 
 
-            <div style="
-                margin-top:15px;
-                line-height:2;
-            ">
+                </div>
 
-                <div>✅ Shipment Created</div>
 
-                <div>✅ Package Picked Up</div>
+                <h3>
+                    Shipment Progress
+                </h3>
 
-                <div>✅ Departed Origin</div>
 
-                <div>🚚 ${shipment.status}</div>
+                <div class="tracking-timeline">
 
-                <div>○ Out for Delivery</div>
+                    ${timelineHTML}
 
-                <div>○ Delivered</div>
+                </div>
+
 
             </div>
 
