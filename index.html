@@ -1080,6 +1080,247 @@
     </div>
 
 </section>
+    <!-- QUOTE REQUEST -->
+
+<section class="section quote-section" id="quote">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>Request a Shipping Quote</h2>
+
+            <p>
+                Tell us about your shipment and receive
+                an estimated quote request reference.
+            </p>
+
+        </div>
+
+        <div class="shipment-card">
+
+            <form id="quoteForm">
+
+                <div class="shipment-info">
+
+                    <div class="info-box">
+
+                        <label for="quoteName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="quoteName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <label for="quoteEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="quoteEmail"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <label for="quotePhone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="quotePhone"
+                            placeholder="Enter your phone number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <label for="quoteWeight">
+                            Package Weight (kg)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="quoteWeight"
+                            min="0.1"
+                            step="0.1"
+                            placeholder="e.g. 10"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="shipment-info">
+
+                    <div class="info-box">
+
+                        <label for="quoteOrigin">
+                            Origin Country
+                        </label>
+
+                        <select id="quoteOrigin" required>
+
+                            <option value="">
+                                Select origin
+                            </option>
+
+                            <option>Nigeria</option>
+                            <option>United Kingdom</option>
+                            <option>United States</option>
+                            <option>Canada</option>
+                            <option>Germany</option>
+                            <option>France</option>
+                            <option>Australia</option>
+                            <option>South Africa</option>
+                            <option>Ghana</option>
+                            <option>United Arab Emirates</option>
+                            <option>India</option>
+                            <option>China</option>
+                            <option>Japan</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <label for="quoteDestination">
+                            Destination Country
+                        </label>
+
+                        <select id="quoteDestination" required>
+
+                            <option value="">
+                                Select destination
+                            </option>
+
+                            <option>Nigeria</option>
+                            <option>United Kingdom</option>
+                            <option>United States</option>
+                            <option>Canada</option>
+                            <option>Germany</option>
+                            <option>France</option>
+                            <option>Australia</option>
+                            <option>South Africa</option>
+                            <option>Ghana</option>
+                            <option>United Arab Emirates</option>
+                            <option>India</option>
+                            <option>China</option>
+                            <option>Japan</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <label for="packageType">
+                            Package Type
+                        </label>
+
+                        <select id="packageType" required>
+
+                            <option value="">
+                                Select package type
+                            </option>
+
+                            <option>Documents</option>
+                            <option>Small Package</option>
+                            <option>Large Package</option>
+                            <option>Commercial Goods</option>
+                            <option>Freight</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <label for="quoteMethod">
+                            Shipping Method
+                        </label>
+
+                        <select id="quoteMethod" required>
+
+                            <option value="">
+                                Select shipping method
+                            </option>
+
+                            <option value="express">
+                                Express Delivery
+                            </option>
+
+                            <option value="standard">
+                                Standard Delivery
+                            </option>
+
+                            <option value="freight">
+                                Freight Shipping
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <label for="quoteNotes">
+                        Additional Information
+                    </label>
+
+                    <textarea
+                        id="quoteNotes"
+                        rows="4"
+                        placeholder="Tell us anything important about your shipment..."
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn"
+                >
+                    Request Quote
+                </button>
+
+            </form>
+
+
+            <div id="quoteResult"></div>
+
+        </div>
+
+    </div>
+
+</section>
 <!-- CTA -->
 
 <section class="section cta" id="contact">
