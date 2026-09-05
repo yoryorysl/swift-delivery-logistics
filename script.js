@@ -1,33 +1,103 @@
+/* =========================================================
+   SWIFT DELIVERY LOGISTICS
+   Main Website JavaScript
+   ========================================================= */
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
 function toggleMenu() {
     const navigation = document.getElementById("navigation");
-    navigation.classList.toggle("active");
+
+    if (navigation) {
+        navigation.classList.toggle("active");
+    }
 }
 
 
+/* Close mobile menu when a navigation link is clicked */
+
+document.querySelectorAll("#navigation a").forEach(function(link) {
+    link.addEventListener("click", function() {
+        const navigation = document.getElementById("navigation");
+
+        if (navigation) {
+            navigation.classList.remove("active");
+        }
+    });
+});
+
+
+/* =========================================================
+   SECURITY HELPER
+   ========================================================= */
+
+function escapeHTML(value) {
+    return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+/* =========================================================
+   SHIPMENT TRACKING
+   ========================================================= */
+
+/*
+   IMPORTANT:
+
+   No fake customer or shipment records are stored here.
+
+   Real shipment information should later come from the
+   company's actual shipment database/backend.
+
+   Expected shipment information:
+
+   - Tracking Number
+   - Shipment ID
+   - Pickup Date
+   - Estimated Delivery Date
+   - Origin
+   - Destination
+   - Package Weight
+   - Current Location
+   - Shipment Status
+*/
+
 function trackShipment(event) {
+
     event.preventDefault();
 
-    const trackingNumber =
-        document.getElementById("trackingNumber")
-        .value
-        .trim()
-        .toUpperCase();
+    const trackingInput =
+        document.getElementById("trackingNumber");
 
     const result =
         document.getElementById("trackingResult");
 
+    if (!trackingInput || !result) {
+        return;
+    }
 
-    if (trackingNumber === "") {
+    const trackingNumber =
+        trackingInput.value.trim().toUpperCase();
+
+
+    if (!trackingNumber) {
 
         result.innerHTML = `
             <div class="tracking-result">
-
                 <div class="shipment-card">
-
                     <h3>Please enter a tracking number.</h3>
-
+                    <p>
+                        Enter your shipment tracking number
+                        to check its current status.
+                    </p>
                 </div>
-
             </div>
         `;
 
@@ -36,56 +106,13 @@ function trackShipment(event) {
 
 
     /*
-        DEMO SHIPMENT DATABASE
+       Real shipment database will be connected here later.
 
-        These are sample shipments.
-        Later we will connect this
-        to a real database.
+       Do NOT add customer shipment information here unless
+       it has been provided by Swift Delivery Logistics.
     */
 
-    const shipments = {
-
-        "SDL-10001": {
-            recipient: "John Anderson",
-            origin: "Lagos, Nigeria",
-            destination: "London, United Kingdom",
-            location: "London Distribution Center",
-            status: "In Transit",
-            delivery: "September 8, 2026",
-            step: 3
-        },
-
-        "SDL-10002": {
-            recipient: "Sarah Williams",
-            origin: "Abuja, Nigeria",
-            destination: "New York, USA",
-            location: "New York Sorting Facility",
-            status: "Out for Delivery",
-            delivery: "September 5, 2026",
-            step: 5
-        },
-
-        "SDL-10003": {
-            recipient: "Michael Brown",
-            origin: "Benin City, Nigeria",
-            destination: "Toronto, Canada",
-            location: "Toronto Distribution Center",
-            status: "Processing",
-            delivery: "September 10, 2026",
-            step: 1
-        },
-
-        "SDL-10004": {
-            recipient: "Emily Johnson",
-            origin: "Lagos, Nigeria",
-            destination: "Paris, France",
-            location: "Paris Delivery Hub",
-            status: "Delivered",
-            delivery: "September 3, 2026",
-            step: 6
-        }
-
-    };
+    const shipments = {};
 
 
     const shipment = shipments[trackingNumber];
@@ -99,19 +126,18 @@ function trackShipment(event) {
                 <div class="shipment-card">
 
                     <div class="shipment-header">
-
                         <h3>Shipment Not Found</h3>
-
                     </div>
 
                     <p>
                         We couldn't find a shipment matching
-                        <strong>${trackingNumber}</strong>.
+                        <strong>${escapeHTML(trackingNumber)}</strong>.
                     </p>
 
                     <p>
-                        Please check the tracking number
-                        and try again.
+                        Please check your tracking number and
+                        try again. If you need assistance,
+                        please contact Swift Delivery Logistics.
                     </p>
 
                 </div>
@@ -124,65 +150,52 @@ function trackShipment(event) {
 
 
     const steps = [
-
-        "Shipment Created",
-
-        "Package Picked Up",
-
-        "Departed Origin",
-
+        "Label Created",
+        "Picked Up",
         "In Transit",
-
+        "Arrived at Facility",
         "Out for Delivery",
-
         "Delivered"
-
     ];
 
 
     let timelineHTML = "";
 
 
-    steps.forEach((stepName, index) => {
+    steps.forEach(function(stepName, index) {
 
         const stepNumber = index + 1;
 
         let className = "";
 
-
         if (stepNumber < shipment.step) {
-
             className = "completed";
-
         } else if (stepNumber === shipment.step) {
-
             className = "active";
-
         }
 
 
         timelineHTML += `
-
             <div class="timeline-item ${className}">
 
                 <div class="timeline-dot"></div>
 
-                <h4>${stepName}</h4>
+                <h4>
+                    ${escapeHTML(stepName)}
+                </h4>
 
                 <p>
                     ${
                         stepNumber < shipment.step
-                        ? "Completed"
-                        : stepNumber === shipment.step
-                        ? "Current shipment status"
-                        : "Pending"
+                            ? "Completed"
+                            : stepNumber === shipment.step
+                            ? "Current shipment status"
+                            : "Pending"
                     }
                 </p>
 
             </div>
-
         `;
-
     });
 
 
@@ -192,7 +205,6 @@ function trackShipment(event) {
 
             <div class="shipment-card">
 
-
                 <div class="shipment-header">
 
                     <h3>
@@ -200,7 +212,7 @@ function trackShipment(event) {
                     </h3>
 
                     <span class="status-badge">
-                        ${shipment.status}
+                        ${escapeHTML(shipment.status)}
                     </span>
 
                 </div>
@@ -208,84 +220,68 @@ function trackShipment(event) {
 
                 <div class="shipment-info">
 
-
                     <div class="info-box">
-
-                        <small>
-                            Tracking Number
-                        </small>
-
+                        <small>Tracking Number</small>
                         <strong>
-                            ${trackingNumber}
+                            ${escapeHTML(trackingNumber)}
                         </strong>
-
                     </div>
 
 
                     <div class="info-box">
-
-                        <small>
-                            Recipient
-                        </small>
-
+                        <small>Shipment ID</small>
                         <strong>
-                            ${shipment.recipient}
+                            ${escapeHTML(shipment.shipmentId)}
                         </strong>
-
                     </div>
 
 
                     <div class="info-box">
-
-                        <small>
-                            Origin
-                        </small>
-
+                        <small>Pickup Date</small>
                         <strong>
-                            ${shipment.origin}
+                            ${escapeHTML(shipment.pickupDate)}
                         </strong>
-
                     </div>
 
 
                     <div class="info-box">
-
-                        <small>
-                            Destination
-                        </small>
-
+                        <small>Estimated Delivery</small>
                         <strong>
-                            ${shipment.destination}
+                            ${escapeHTML(shipment.deliveryDate)}
                         </strong>
-
                     </div>
 
 
                     <div class="info-box">
-
-                        <small>
-                            Current Location
-                        </small>
-
+                        <small>Origin</small>
                         <strong>
-                            ${shipment.location}
+                            ${escapeHTML(shipment.origin)}
                         </strong>
-
                     </div>
 
 
                     <div class="info-box">
-
-                        <small>
-                            Estimated Delivery
-                        </small>
-
+                        <small>Destination</small>
                         <strong>
-                            ${shipment.delivery}
+                            ${escapeHTML(shipment.destination)}
                         </strong>
-
                     </div>
 
+
+                    <div class="info-box">
+                        <small>Package Weight</small>
+                        <strong>
+                            ${escapeHTML(shipment.weight)}
+                        </strong>
+                    </div>
+
+
+                    <div class="info-box">
+                        <small>Current Location</small>
+                        <strong>
+                            ${escapeHTML(shipment.location)}
+                        </strong>
+                    </div>
 
                 </div>
 
@@ -296,11 +292,8 @@ function trackShipment(event) {
 
 
                 <div class="tracking-timeline">
-
                     ${timelineHTML}
-
                 </div>
-
 
             </div>
 
@@ -308,269 +301,239 @@ function trackShipment(event) {
 
     `;
 }
-const shippingCalculator =
-    document.getElementById("shippingCalculator");
 
 
-if (shippingCalculator) {
+/* =========================================================
+   FORM SUBMISSION HELPER
+   ========================================================= */
 
-    shippingCalculator.addEventListener(
-        "submit",
-        function(event) {
+async function submitToFormspree(formData, resultElement, button) {
 
-            event.preventDefault();
+    const endpoint =
+        "https://formspree.io/f/xeaqljvk";
 
 
-            const origin =
-                document.getElementById("origin").value;
+    if (button) {
+        button.disabled = true;
+        button.dataset.originalText =
+            button.textContent;
 
-            const destination =
-                document.getElementById("destination").value;
+        button.textContent = "Sending...";
+    }
 
-            const weight =
-                parseFloat(
-                    document.getElementById("weight").value
-                );
 
-            const method =
-                document.getElementById("shippingMethod").value;
+    try {
 
+        const response = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+                "Accept": "application/json"
+            },
+            body: formData
+        });
 
-            const result =
-                document.getElementById("shippingResult");
 
+        const data = await response.json();
 
-            if (
-                !origin ||
-                !destination ||
-                !weight ||
-                !method
-            ) {
 
-                result.innerHTML = `
-                    <div class="shipment-card"
-                         style="margin-top:20px;">
+        if (response.ok) {
 
-                        <h3>
-                            Please complete all fields.
-                        </h3>
+            resultElement.innerHTML = `
+                <div class="booking-success">
 
-                    </div>
-                `;
-
-                return;
-            }
-
-
-            if (weight <= 0) {
-
-                result.innerHTML = `
-                    <div class="shipment-card"
-                         style="margin-top:20px;">
-
-                        <h3>
-                            Please enter a valid weight.
-                        </h3>
-
-                    </div>
-                `;
-
-                return;
-            }
-
-
-            /*
-                DEMO PRICING
-
-                These prices are for the
-                website calculator demonstration.
-            */
-
-            let rate;
-
-
-            if (method === "express") {
-
-                rate = 25;
-
-            } else if (method === "standard") {
-
-                rate = 15;
-
-            } else {
-
-                rate = 10;
-
-            }
-
-
-            let distanceFee = 0;
-
-
-            if (origin !== destination) {
-
-                distanceFee = 20;
-
-            }
-
-
-            const total =
-                (weight * rate) + distanceFee;
-
-
-            result.innerHTML = `
-
-                <div class="shipment-card"
-                     style="margin-top:20px;">
-
-                    <div class="shipment-header">
-
-                        <h3>
-                            Estimated Shipping Cost
-                        </h3>
-
-                        <span class="status-badge">
-                            Estimate
-                        </span>
-
-                    </div>
-
-
-                    <div class="shipment-info">
-
-
-                        <div class="info-box">
-
-                            <small>
-                                Route
-                            </small>
-
-                            <strong>
-                                ${origin} → ${destination}
-                            </strong>
-
-                        </div>
-
-
-                        <div class="info-box">
-
-                            <small>
-                                Package Weight
-                            </small>
-
-                            <strong>
-                                ${weight} kg
-                            </strong>
-
-                        </div>
-
-
-                        <div class="info-box">
-
-                            <small>
-                                Shipping Method
-                            </small>
-
-                            <strong>
-                                ${
-                                    method === "express"
-                                    ? "Express Delivery"
-                                    : method === "standard"
-                                    ? "Standard Delivery"
-                                    : "Freight Shipping"
-                                }
-                            </strong>
-
-                        </div>
-
-
-                        <div class="info-box">
-
-                            <small>
-                                Estimated Cost
-                            </small>
-
-                            <strong>
-                                $${total.toFixed(2)}
-                            </strong>
-
-                        </div>
-
-
-                    </div>
-
+                    <h3>
+                        Request Sent Successfully ✓
+                    </h3>
 
                     <p>
-                        This is an estimated price.
-                        Final shipping costs may vary
-                        depending on package dimensions,
-                        destination and other factors.
+                        Thank you. Your request has been
+                        sent to Swift Delivery Logistics.
+                    </p>
+
+                    <p>
+                        Our team will review the information
+                        provided and contact you regarding
+                        the next steps.
                     </p>
 
                 </div>
-
             `;
 
-        }
-    );
+            return true;
 
+        } else {
+
+            throw new Error(
+                data.error ||
+                "Unable to send request."
+            );
+        }
+
+    } catch (error) {
+
+        resultElement.innerHTML = `
+            <div class="shipment-card"
+                 style="margin-top:20px;">
+
+                <h3>
+                    Unable to send request
+                </h3>
+
+                <p>
+                    Something went wrong while sending
+                    your request. Please try again or
+                    contact Swift Delivery Logistics
+                    directly.
+                </p>
+
+            </div>
+        `;
+
+        return false;
+
+    } finally {
+
+        if (button) {
+
+            button.disabled = false;
+
+            button.textContent =
+                button.dataset.originalText ||
+                "Submit";
+        }
+    }
 }
-/* BOOKING FORM */
+
+
+/* =========================================================
+   BOOKING FORM
+   ========================================================= */
 
 const bookingForm =
     document.getElementById("bookingForm");
 
+
 if (bookingForm) {
+
+    const pickupDate =
+        document.getElementById("pickupDate");
+
+
+    /*
+       Prevent users from selecting a date in the past.
+    */
+
+    if (pickupDate) {
+
+        const today =
+            new Date();
+
+        const year =
+            today.getFullYear();
+
+        const month =
+            String(today.getMonth() + 1)
+            .padStart(2, "0");
+
+        const day =
+            String(today.getDate())
+            .padStart(2, "0");
+
+        pickupDate.min =
+            `${year}-${month}-${day}`;
+    }
+
 
     bookingForm.addEventListener(
         "submit",
-        function(event) {
+        async function(event) {
 
             event.preventDefault();
 
+
             const senderName =
-                document.getElementById("senderName").value.trim();
+                document.getElementById("senderName")
+                ?.value.trim();
+
+            const senderPhone =
+                document.getElementById("senderPhone")
+                ?.value.trim();
 
             const recipientName =
-                document.getElementById("recipientName").value.trim();
+                document.getElementById("recipientName")
+                ?.value.trim();
+
+            const recipientPhone =
+                document.getElementById("recipientPhone")
+                ?.value.trim();
 
             const bookingCountry =
-    document.getElementById("bookingCountry").value;
+                document.getElementById("bookingCountry")
+                ?.value.trim();
 
-const bookingDestinationCountry =
-    document.getElementById("bookingDestinationCountry").value;
+            const pickupAddress =
+                document.getElementById("pickupAddress")
+                ?.value.trim();
 
-const pickupAddress =
-    document.getElementById("pickupAddress").value.trim();
+            const bookingDestinationCountry =
+                document.getElementById(
+                    "bookingDestinationCountry"
+                )
+                ?.value.trim();
 
-const deliveryAddress =
-    document.getElementById("deliveryAddress").value.trim();
+            const deliveryAddress =
+                document.getElementById("deliveryAddress")
+                ?.value.trim();
 
             const packageWeight =
-                parseFloat(
-                    document.getElementById("packageWeight").value
-                );
+                document.getElementById("packageWeight")
+                ?.value.trim();
 
-            const pickupDate =
-                document.getElementById("pickupDate").value;
+            const packageDimensions =
+                document.getElementById("packageDimensions")
+                ?.value.trim();
+
+            const shippingMethod =
+                document.getElementById("shippingMethod")
+                ?.value;
+
+            const deliveryDate =
+                document.getElementById("pickupDate")
+                ?.value;
 
             const packageDescription =
-                document.getElementById("packageDescription").value.trim();
+                document.getElementById("packageDescription")
+                ?.value.trim();
+
+            const paymentMethod =
+                document.getElementById("paymentMethod")
+                ?.value;
 
             const bookingResult =
                 document.getElementById("bookingResult");
 
+
+            if (!bookingResult) {
+                return;
+            }
+
+
             if (
-    !senderName ||
-    !recipientName ||
-    !bookingCountry ||
-    !bookingDestinationCountry ||
-    !pickupAddress ||
-    !deliveryAddress ||
-    !packageWeight ||
-    !pickupDate ||
-    !packageDescription
-) {
+                !senderName ||
+                !senderPhone ||
+                !recipientName ||
+                !recipientPhone ||
+                !bookingCountry ||
+                !pickupAddress ||
+                !bookingDestinationCountry ||
+                !deliveryAddress ||
+                !packageWeight ||
+                !packageDimensions ||
+                !shippingMethod ||
+                !deliveryDate ||
+                !packageDescription ||
+                !paymentMethod
+            ) {
 
                 bookingResult.innerHTML = `
                     <div class="shipment-card"
@@ -586,7 +549,11 @@ const deliveryAddress =
                 return;
             }
 
-            if (packageWeight <= 0) {
+
+            if (
+                isNaN(Number(packageWeight)) ||
+                Number(packageWeight) <= 0
+            ) {
 
                 bookingResult.innerHTML = `
                     <div class="shipment-card"
@@ -602,70 +569,119 @@ const deliveryAddress =
                 return;
             }
 
-            const referenceNumber =
-                "SDL-" +
-                Math.floor(
-                    10000 + Math.random() * 90000
+
+            const submitButton =
+                bookingForm.querySelector(".btn");
+
+
+            const formData =
+                new FormData();
+
+            formData.append(
+                "_subject",
+                "Swift Delivery Logistics - Shipment Booking Request"
+            );
+
+            formData.append(
+                "form_type",
+                "Shipment Booking"
+            );
+
+            formData.append(
+                "sender_name",
+                senderName
+            );
+
+            formData.append(
+                "sender_phone",
+                senderPhone
+            );
+
+            formData.append(
+                "recipient_name",
+                recipientName
+            );
+
+            formData.append(
+                "recipient_phone",
+                recipientPhone
+            );
+
+            formData.append(
+                "pickup_country",
+                bookingCountry
+            );
+
+            formData.append(
+                "pickup_location",
+                pickupAddress
+            );
+
+            formData.append(
+                "destination_country",
+                bookingDestinationCountry
+            );
+
+            formData.append(
+                "delivery_address",
+                deliveryAddress
+            );
+
+            formData.append(
+                "package_weight",
+                `${packageWeight} kg`
+            );
+
+            formData.append(
+                "package_dimensions",
+                packageDimensions
+            );
+
+            formData.append(
+                "shipping_method",
+                shippingMethod
+            );
+
+            formData.append(
+                "preferred_delivery_date",
+                deliveryDate
+            );
+
+            formData.append(
+                "package_description",
+                packageDescription
+            );
+
+            formData.append(
+                "payment_method",
+                paymentMethod
+            );
+
+
+            const success =
+                await submitToFormspree(
+                    formData,
+                    bookingResult,
+                    submitButton
                 );
 
-            bookingResult.innerHTML = `
 
-                <div class="booking-success">
-
-                    <h3>
-                        Shipment Booking Received ✓
-                    </h3>
-
-                    <p>
-                        Thank you,
-                        <strong>${senderName}</strong>.
-                        Your shipment request has been
-                        successfully submitted.
-                    </p>
-
-                    <p>
-                        Recipient:
-                        <strong>${recipientName}</strong>
-                    </p>
-
-                    <p>
-                        Route:
-                        <strong>
-    ${pickupAddress}, ${bookingCountry}
-    →
-    ${deliveryAddress}, ${bookingDestinationCountry}
-</strong>
-                    </p>
-
-                    <p>
-                        Package Weight:
-                        <strong>
-                            ${packageWeight} kg
-                        </strong>
-                    </p>
-
-                    <p class="booking-reference">
-                        Booking Reference:
-                        ${referenceNumber}
-                    </p>
-
-                    <p>
-                        Please keep this reference number
-                        for your records.
-                    </p>
-
-                </div>
-            `;
-
-            bookingForm.reset();
+            if (success) {
+                bookingForm.reset();
+            }
 
         }
     );
 }
-/* FAQ ACCORDION */
+
+
+/* =========================================================
+   FAQ ACCORDION
+   ========================================================= */
 
 const faqQuestions =
     document.querySelectorAll(".faq-question");
+
 
 faqQuestions.forEach(function(question) {
 
@@ -675,6 +691,7 @@ faqQuestions.forEach(function(question) {
 
             const currentItem =
                 question.parentElement;
+
 
             document
                 .querySelectorAll(".faq-item")
@@ -686,69 +703,79 @@ faqQuestions.forEach(function(question) {
 
                 });
 
+
             currentItem.classList.toggle("active");
 
         }
     );
 
 });
-/* QUOTE REQUEST */
+
+
+/* =========================================================
+   QUOTE REQUEST
+   ========================================================= */
 
 const quoteForm =
     document.getElementById("quoteForm");
+
 
 if (quoteForm) {
 
     quoteForm.addEventListener(
         "submit",
-        function(event) {
+        async function(event) {
 
             event.preventDefault();
 
+
             const name =
                 document.getElementById("quoteName")
-                .value
-                .trim();
+                ?.value.trim();
 
             const email =
                 document.getElementById("quoteEmail")
-                .value
-                .trim();
+                ?.value.trim();
 
             const phone =
                 document.getElementById("quotePhone")
-                .value
-                .trim();
+                ?.value.trim();
 
             const weight =
-                parseFloat(
-                    document.getElementById("quoteWeight")
-                    .value
-                );
+                document.getElementById("quoteWeight")
+                ?.value.trim();
+
+            const dimensions =
+                document.getElementById("quoteDimensions")
+                ?.value.trim();
 
             const origin =
                 document.getElementById("quoteOrigin")
-                .value;
+                ?.value.trim();
 
             const destination =
                 document.getElementById("quoteDestination")
-                .value;
+                ?.value.trim();
 
             const packageType =
                 document.getElementById("packageType")
-                .value;
+                ?.value;
 
             const method =
                 document.getElementById("quoteMethod")
-                .value;
+                ?.value;
 
             const notes =
                 document.getElementById("quoteNotes")
-                .value
-                .trim();
+                ?.value.trim();
 
             const result =
                 document.getElementById("quoteResult");
+
+
+            if (!result) {
+                return;
+            }
 
 
             if (
@@ -756,6 +783,7 @@ if (quoteForm) {
                 !email ||
                 !phone ||
                 !weight ||
+                !dimensions ||
                 !origin ||
                 !destination ||
                 !packageType ||
@@ -777,7 +805,10 @@ if (quoteForm) {
             }
 
 
-            if (weight <= 0) {
+            if (
+                isNaN(Number(weight)) ||
+                Number(weight) <= 0
+            ) {
 
                 result.innerHTML = `
                     <div class="shipment-card"
@@ -794,92 +825,206 @@ if (quoteForm) {
             }
 
 
-            const quoteReference =
-                "QUOTE-" +
-                Math.floor(
-                    10000 + Math.random() * 90000
+            const submitButton =
+                quoteForm.querySelector(".btn");
+
+
+            const formData =
+                new FormData();
+
+
+            formData.append(
+                "_subject",
+                "Swift Delivery Logistics - Quote Request"
+            );
+
+            formData.append(
+                "form_type",
+                "Quote Request"
+            );
+
+            formData.append(
+                "name",
+                name
+            );
+
+            formData.append(
+                "email",
+                email
+            );
+
+            formData.append(
+                "phone",
+                phone
+            );
+
+            formData.append(
+                "package_weight",
+                `${weight} kg`
+            );
+
+            formData.append(
+                "package_dimensions",
+                dimensions
+            );
+
+            formData.append(
+                "origin",
+                origin
+            );
+
+            formData.append(
+                "destination",
+                destination
+            );
+
+            formData.append(
+                "package_type",
+                packageType
+            );
+
+            formData.append(
+                "shipping_method",
+                method
+            );
+
+            formData.append(
+                "additional_information",
+                notes || "None provided"
+            );
+
+
+            const success =
+                await submitToFormspree(
+                    formData,
+                    result,
+                    submitButton
                 );
 
 
-            result.innerHTML = `
-
-                <div class="quote-success">
-
-                    <h3>
-                        Quote Request Received ✓
-                    </h3>
-
-                    <p>
-                        Thank you,
-                        <strong>${name}</strong>.
-                    </p>
-
-                    <p>
-                        Your quote request has been
-                        received successfully.
-                    </p>
-
-                    <p>
-                        Route:
-                        <strong>
-                            ${origin} → ${destination}
-                        </strong>
-                    </p>
-
-                    <p>
-                        Package:
-                        <strong>
-                            ${packageType}
-                        </strong>
-                    </p>
-
-                    <p>
-                        Weight:
-                        <strong>
-                            ${weight} kg
-                        </strong>
-                    </p>
-
-                    <p class="quote-reference">
-                        Quote Reference:
-                        ${quoteReference}
-                    </p>
-
-                    <p>
-                        Keep this reference for your records.
-                    </p>
-
-                </div>
-
-            `;
-
-            quoteForm.reset();
+            if (success) {
+                quoteForm.reset();
+            }
 
         }
     );
-
 }
-/* CONTACT FORM */
+
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
 
 const contactForm =
     document.getElementById("contactForm");
+
 
 if (contactForm) {
 
     contactForm.addEventListener(
         "submit",
-        function() {
+        async function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document.getElementById("contactName")
+                ?.value.trim();
+
+            const email =
+                document.getElementById("contactEmail")
+                ?.value.trim();
+
+            const phone =
+                document.getElementById("contactPhone")
+                ?.value.trim();
+
+            const message =
+                document.getElementById("contactMessage")
+                ?.value.trim();
+
+            const result =
+                document.getElementById("contactResult");
+
+
+            if (!result) {
+                return;
+            }
+
+
+            if (
+                !name ||
+                !email ||
+                !message
+            ) {
+
+                result.innerHTML = `
+                    <div class="shipment-card"
+                         style="margin-top:20px;">
+
+                        <h3>
+                            Please complete the required fields.
+                        </h3>
+
+                    </div>
+                `;
+
+                return;
+            }
+
 
             const submitButton =
                 contactForm.querySelector(".btn");
 
-            if (submitButton) {
-                submitButton.textContent =
-                    "Sending...";
-                submitButton.disabled = true;
+
+            const formData =
+                new FormData();
+
+
+            formData.append(
+                "_subject",
+                "Swift Delivery Logistics - Contact Message"
+            );
+
+            formData.append(
+                "form_type",
+                "Contact Message"
+            );
+
+            formData.append(
+                "name",
+                name
+            );
+
+            formData.append(
+                "email",
+                email
+            );
+
+            formData.append(
+                "phone",
+                phone || "Not provided"
+            );
+
+            formData.append(
+                "message",
+                message
+            );
+
+
+            const success =
+                await submitToFormspree(
+                    formData,
+                    result,
+                    submitButton
+                );
+
+
+            if (success) {
+                contactForm.reset();
             }
 
         }
     );
-
 }
