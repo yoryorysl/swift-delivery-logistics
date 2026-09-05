@@ -781,3 +781,37 @@ footer strong {
 .faq-item.active .faq-question span {
     transform: rotate(45deg);
 }
+/* QUOTE REQUEST */
+
+.quote-section {
+    background: #f7f9fc;
+}
+
+#quoteForm {
+    width: 100%;
+}
+
+#quoteForm .btn {
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.quote-success {
+    margin-top: 25px;
+    padding: 22px;
+    border-radius: 10px;
+    background: #eefaf1;
+    border: 1px solid #b7dfc0;
+}
+
+.quote-success h3 {
+    color: #176b2c;
+    margin-bottom: 10px;
+}
+
+.quote-reference {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 12px;
+}
