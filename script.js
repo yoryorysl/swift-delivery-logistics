@@ -692,3 +692,170 @@ faqQuestions.forEach(function(question) {
     );
 
 });
+/* QUOTE REQUEST */
+
+const quoteForm =
+    document.getElementById("quoteForm");
+
+if (quoteForm) {
+
+    quoteForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("quoteName")
+                .value
+                .trim();
+
+            const email =
+                document.getElementById("quoteEmail")
+                .value
+                .trim();
+
+            const phone =
+                document.getElementById("quotePhone")
+                .value
+                .trim();
+
+            const weight =
+                parseFloat(
+                    document.getElementById("quoteWeight")
+                    .value
+                );
+
+            const origin =
+                document.getElementById("quoteOrigin")
+                .value;
+
+            const destination =
+                document.getElementById("quoteDestination")
+                .value;
+
+            const packageType =
+                document.getElementById("packageType")
+                .value;
+
+            const method =
+                document.getElementById("quoteMethod")
+                .value;
+
+            const notes =
+                document.getElementById("quoteNotes")
+                .value
+                .trim();
+
+            const result =
+                document.getElementById("quoteResult");
+
+
+            if (
+                !name ||
+                !email ||
+                !phone ||
+                !weight ||
+                !origin ||
+                !destination ||
+                !packageType ||
+                !method
+            ) {
+
+                result.innerHTML = `
+                    <div class="shipment-card"
+                         style="margin-top:20px;">
+
+                        <h3>
+                            Please complete all required fields.
+                        </h3>
+
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            if (weight <= 0) {
+
+                result.innerHTML = `
+                    <div class="shipment-card"
+                         style="margin-top:20px;">
+
+                        <h3>
+                            Please enter a valid package weight.
+                        </h3>
+
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            const quoteReference =
+                "QUOTE-" +
+                Math.floor(
+                    10000 + Math.random() * 90000
+                );
+
+
+            result.innerHTML = `
+
+                <div class="quote-success">
+
+                    <h3>
+                        Quote Request Received ✓
+                    </h3>
+
+                    <p>
+                        Thank you,
+                        <strong>${name}</strong>.
+                    </p>
+
+                    <p>
+                        Your quote request has been
+                        received successfully.
+                    </p>
+
+                    <p>
+                        Route:
+                        <strong>
+                            ${origin} → ${destination}
+                        </strong>
+                    </p>
+
+                    <p>
+                        Package:
+                        <strong>
+                            ${packageType}
+                        </strong>
+                    </p>
+
+                    <p>
+                        Weight:
+                        <strong>
+                            ${weight} kg
+                        </strong>
+                    </p>
+
+                    <p class="quote-reference">
+                        Quote Reference:
+                        ${quoteReference}
+                    </p>
+
+                    <p>
+                        Keep this reference for your records.
+                    </p>
+
+                </div>
+
+            `;
+
+            quoteForm.reset();
+
+        }
+    );
+
+}
