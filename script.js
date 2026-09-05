@@ -868,76 +868,16 @@ if (contactForm) {
 
     contactForm.addEventListener(
         "submit",
-        function(event) {
+        function() {
 
-            event.preventDefault();
+            const submitButton =
+                contactForm.querySelector(".btn");
 
-            const name =
-                document.getElementById("contactName")
-                .value
-                .trim();
-
-            const email =
-                document.getElementById("contactEmail")
-                .value
-                .trim();
-
-            const phone =
-                document.getElementById("contactPhone")
-                .value
-                .trim();
-
-            const message =
-                document.getElementById("contactMessage")
-                .value
-                .trim();
-
-            const result =
-                document.getElementById("contactResult");
-
-
-            if (
-                !name ||
-                !email ||
-                !phone ||
-                !message
-            ) {
-
-                result.innerHTML = `
-                    <div class="shipment-card"
-                         style="margin-top:20px;">
-
-                        <h3>
-                            Please complete all fields.
-                        </h3>
-
-                    </div>
-                `;
-
-                return;
+            if (submitButton) {
+                submitButton.textContent =
+                    "Sending...";
+                submitButton.disabled = true;
             }
-
-
-            result.innerHTML = `
-
-                <div class="contact-success">
-
-                    <h4>
-                        Message Received ✓
-                    </h4>
-
-                    <p>
-                        Thank you,
-                        <strong>${name}</strong>.
-                        Your message has been submitted
-                        successfully.
-                    </p>
-
-                </div>
-
-            `;
-
-            contactForm.reset();
 
         }
     );
