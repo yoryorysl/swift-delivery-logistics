@@ -1,2141 +1,1948 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Swift Delivery Logistics | Fast, Reliable & Worldwide Shipping</title>
+  <title>Swift Delivery Logistics | Fast, Reliable & Worldwide Shipping</title>
 
-    <meta name="description" content="Swift Delivery Logistics is a trusted U.S.-based global logistics company providing fast, secure, and reliable worldwide shipping and delivery solutions for individuals and businesses.">
+  <meta
+    name="description"
+    content="Swift Delivery Logistics provides fast, secure and reliable shipping and delivery solutions for individuals and businesses."
+  >
 
-    <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#071a2d">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <div class="navbar">
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-        <a href="#home" class="logo" aria-label="Swift Delivery Logistics">
-            <span class="logo-mark">SDL</span>
-            <span class="logo-text">
-                Swift <span>Delivery</span>
-            </span>
-        </a>
+  <header class="site-header" id="siteHeader">
 
-        <button
-            class="menu-btn"
-            onclick="toggleMenu()"
-            aria-label="Open navigation menu"
-            type="button">
-            ☰
-        </button>
+    <div class="header-inner">
 
-        <nav id="navigation">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#why-us">Why Choose Us</a>
-            <a href="#tracking">Track Shipment</a>
-            <a href="#quote">Get a Quote</a>
-            <a href="#booking">Book a Shipment</a>
-            <a href="#about">About</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contact">Contact</a>
-        </nav>
+      <a href="#home" class="logo" aria-label="Swift Delivery Logistics home">
+        <span class="logo-mark">SDL</span>
+
+        <span class="logo-text">
+          <strong>Swift</strong>
+          <small>Delivery Logistics</small>
+        </span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        onclick="toggleMenu()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="navigation" id="navigation">
+
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#why-us" class="nav-link">Why Choose Us</a>
+        <a href="#tracking" class="nav-link">Track Shipment</a>
+        <a href="#quote" class="nav-link">Get a Quote</a>
+        <a href="#booking" class="nav-link">Book a Shipment</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#contact" class="nav-link">Contact</a>
+
+      </nav>
 
     </div>
-</header>
+
+  </header>
 
 
-<!-- HERO -->
+  <!-- =========================
+       SCROLL PROGRESS
+  ========================== -->
 
-<section class="hero" id="home">
+  <div class="scroll-progress">
+    <span id="scrollProgressBar"></span>
+  </div>
 
-    <div class="hero-overlay"></div>
 
-    <div class="hero-content">
+  <!-- =========================
+       HERO
+  ========================== -->
 
-        <div class="hero-badge">
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="hero-background"></div>
+
+      <div class="hero-overlay"></div>
+
+      <!-- 3D decorative logistics system -->
+      <div class="hero-3d" aria-hidden="true">
+
+        <div class="hero-orbit orbit-one"></div>
+        <div class="hero-orbit orbit-two"></div>
+        <div class="hero-orbit orbit-three"></div>
+
+        <div class="hero-node node-one"></div>
+        <div class="hero-node node-two"></div>
+        <div class="hero-node node-three"></div>
+        <div class="hero-node node-four"></div>
+
+        <div class="hero-route-line route-one"></div>
+        <div class="hero-route-line route-two"></div>
+
+        <div class="hero-cube">
+
+          <div class="cube-face cube-front">SDL</div>
+          <div class="cube-face cube-back">SDL</div>
+          <div class="cube-face cube-right"></div>
+          <div class="cube-face cube-left"></div>
+          <div class="cube-face cube-top">✦</div>
+          <div class="cube-face cube-bottom"></div>
+
+        </div>
+
+        <div class="hero-network-card">
+
+          <span class="network-status">
+            <i></i>
+            GLOBAL NETWORK
+          </span>
+
+          <strong>Moving Your World</strong>
+
+          <small>
+            Fast • Secure • Reliable
+          </small>
+
+          <div class="network-route">
+            <span></span>
+            <i></i>
+            <span></span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-content container">
+
+        <div class="hero-copy reveal">
+
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
             FAST • RELIABLE • WORLDWIDE
-        </div>
+          </div>
 
-        <h1>
-            Moving Your World
-            <span>Swiftly.</span>
-        </h1>
+          <p class="hero-kicker">
+            SMART LOGISTICS. SEAMLESS DELIVERY.
+          </p>
 
-        <p>
-            Swift Delivery Logistics is a trusted U.S.-based
-            global logistics company providing fast, secure,
-            and reliable worldwide shipping and delivery
-            solutions for individuals and businesses.
-        </p>
+          <h1>
+            Moving Your
+            <span>World Swiftly.</span>
+          </h1>
 
-        <div class="hero-buttons">
+          <p class="hero-description">
+            Swift Delivery Logistics provides fast, secure and reliable
+            shipping and delivery solutions for individuals and businesses.
+            We make every shipment simple, efficient and dependable —
+            from pickup to final destination.
+          </p>
 
-            <a href="#tracking" class="btn btn-primary">
-                Track Shipment
+          <div class="hero-buttons">
+
+            <a href="#tracking" class="btn btn-primary btn-glow">
+              Track Shipment
+              <span>→</span>
             </a>
 
-            <a href="#quote" class="btn btn-secondary">
-                Get a Quote
+            <a href="#quote" class="btn btn-outline">
+              Request a Quote
+              <span>↗</span>
             </a>
 
+          </div>
+
+
+          <div class="hero-highlights">
+
+            <div class="hero-highlight">
+              <strong>24/7</strong>
+              <span>Support</span>
+            </div>
+
+            <div class="hero-highlight">
+              <strong>Worldwide</strong>
+              <span>Coverage</span>
+            </div>
+
+            <div class="hero-highlight">
+              <strong>Fast</strong>
+              <span>Delivery</span>
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="hero-highlights">
+      </div>
 
-            <div>
-                <strong>24/7</strong>
-                <span>Availability</span>
-            </div>
+      <div class="hero-scroll">
+        <span>SCROLL TO EXPLORE</span>
+        <i></i>
+      </div>
 
-            <div>
-                <strong>Worldwide</strong>
-                <span>Shipping</span>
-            </div>
-
-            <div>
-                <strong>Fast</strong>
-                <span>Reliable Service</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- QUICK ACTIONS -->
+    <!-- =========================
+         QUICK ACTION BAR
+    ========================== -->
 
-<section class="quick-bar">
+    <section class="quick-bar">
 
-    <div class="container">
+      <div class="container">
 
         <div class="quick-bar-grid">
 
-            <a href="#tracking">
-                <span>📍</span>
-                <div>
-                    <strong>Track Shipment</strong>
-                    <small>Check shipment progress</small>
-                </div>
-            </a>
+          <a href="#tracking" class="quick-action tilt-card">
 
-            <a href="#quote">
-                <span>💰</span>
-                <div>
-                    <strong>Request a Quote</strong>
-                    <small>Get your shipping estimate</small>
-                </div>
-            </a>
+            <div class="quick-icon">⌖</div>
 
-            <a href="#booking">
-                <span>📦</span>
-                <div>
-                    <strong>Book a Shipment</strong>
-                    <small>Schedule your shipment</small>
-                </div>
-            </a>
-
-            <a href="#contact">
-                <span>💬</span>
-                <div>
-                    <strong>Contact Us</strong>
-                    <small>Available 24/7</small>
-                </div>
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- TRACKING -->
-
-<section class="section tracking-section" id="tracking">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                SHIPMENT TRACKING
+            <div>
+              <strong>Track Shipment</strong>
+              <span>Check your delivery status</span>
             </div>
 
-            <h2>
-                Track Your Shipment
-            </h2>
+            <b>→</b>
 
-            <p>
-                Enter your tracking number to check the current
-                status and progress of your shipment.
-            </p>
-
-        </div>
-
-        <div class="tracking-box">
-
-            <form
-                class="tracking-form"
-                onsubmit="trackShipment(event)">
-
-                <div class="tracking-input">
-
-                    <span>🔎</span>
-
-                    <input
-                        type="text"
-                        id="trackingNumber"
-                        placeholder="Enter your tracking number"
-                        autocomplete="off"
-                        required>
-
-                </div>
-
-                <button
-                    class="btn btn-primary"
-                    type="submit">
-                    Track Shipment
-                </button>
-
-            </form>
-
-            <p class="tracking-note">
-                Enter the tracking number provided with your shipment.
-            </p>
-
-            <div id="trackingResult"></div>
-
-        </div>
-
-    </div>
-
-</section>
+          </a>
 
 
-<!-- SHIPPING RATES -->
+          <a href="#quote" class="quick-action tilt-card">
 
-<section class="section rates-section" id="rates">
+            <div class="quick-icon">◇</div>
 
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                SHIPPING RATES
+            <div>
+              <strong>Request a Quote</strong>
+              <span>Get a shipping estimate</span>
             </div>
 
-            <h2>
-                Shipping Options & Pricing
-            </h2>
+            <b>→</b>
 
-            <p>
-                Shipping costs vary according to shipment weight,
-                dimensions, destination and delivery speed.
-            </p>
+          </a>
+
+
+          <a href="#booking" class="quick-action tilt-card">
+
+            <div class="quick-icon">▣</div>
+
+            <div>
+              <strong>Book a Shipment</strong>
+              <span>Schedule your delivery</span>
+            </div>
+
+            <b>→</b>
+
+          </a>
+
+
+          <a href="#contact" class="quick-action tilt-card">
+
+            <div class="quick-icon">✉</div>
+
+            <div>
+              <strong>Contact Us</strong>
+              <span>Speak with our team</span>
+            </div>
+
+            <b>→</b>
+
+          </a>
 
         </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TRACKING
+    ========================== -->
+
+    <section class="section tracking-section" id="tracking">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <span class="eyebrow">SHIPMENT TRACKING</span>
+
+          <h2>
+            Know Where Your
+            <span>Shipment Is.</span>
+          </h2>
+
+          <p>
+            Enter your tracking number below to check your shipment status.
+          </p>
+
+        </div>
+
+
+        <div class="tracking-box glass-card reveal">
+
+          <form onsubmit="trackShipment(event)" class="tracking-form">
+
+            <div class="tracking-input-wrap">
+
+              <span class="input-icon">⌖</span>
+
+              <input
+                type="text"
+                id="trackingNumber"
+                placeholder="Enter tracking number e.g. SDL-10001"
+                autocomplete="off"
+                required
+              >
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Track Shipment
+              <span>→</span>
+            </button>
+
+          </form>
+
+
+          <div id="trackingResult" class="tracking-result"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         RATES
+    ========================== -->
+
+    <section class="section rates-section">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <span class="eyebrow">SHIPPING RATES</span>
+
+          <h2>
+            Simple Starting
+            <span>Rates.</span>
+          </h2>
+
+          <p>
+            Flexible shipping options designed around your delivery needs.
+          </p>
+
+        </div>
+
 
         <div class="rates-grid">
 
-            <div class="rate-card">
+          <div class="rate-card tilt-card reveal">
 
-                <div class="rate-icon">🏙️</div>
+            <span class="rate-number">01</span>
 
-                <h3>
-                    Local Shipping
-                </h3>
+            <div class="rate-icon">⌂</div>
 
-                <div class="rate-price">
-                    $25–$50
-                </div>
+            <h3>Local Shipping</h3>
 
-                <p>
-                    Local delivery solutions for applicable
-                    service areas.
-                </p>
-
-            </div>
-
-
-            <div class="rate-card">
-
-                <div class="rate-icon">🇺🇸</div>
-
-                <h3>
-                    Domestic U.S.
-                </h3>
-
-                <div class="rate-price">
-                    $50–$120
-                </div>
-
-                <p>
-                    Reliable domestic shipping throughout
-                    the United States.
-                </p>
-
-            </div>
-
-
-            <div class="rate-card">
-
-                <div class="rate-icon">🌎</div>
-
-                <h3>
-                    International Standard
-                </h3>
-
-                <div class="rate-price">
-                    $100–$250
-                </div>
-
-                <p>
-                    Worldwide standard shipping for
-                    international consignments.
-                </p>
-
-            </div>
-
-
-            <div class="rate-card">
-
-                <div class="rate-icon">✈️</div>
-
-                <h3>
-                    International Express
-                </h3>
-
-                <div class="rate-price">
-                    $200–$500
-                </div>
-
-                <p>
-                    Faster international delivery for
-                    time-sensitive shipments.
-                </p>
-
-            </div>
-
-
-            <div class="rate-card">
-
-                <div class="rate-icon">🚢</div>
-
-                <h3>
-                    Heavy / Urgent Shipments
-                </h3>
-
-                <div class="rate-price">
-                    $500+
-                </div>
-
-                <p>
-                    Pricing is determined according to
-                    shipment requirements.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="rate-note">
-
-            <strong>Important:</strong>
-            Final shipping prices are based on
-            <strong>weight, dimensions, destination and delivery speed.</strong>
-            Request a quote for the applicable price.
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- BOOKING -->
-
-<section class="section booking-section" id="booking">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                SHIPMENT BOOKING
-            </div>
-
-            <h2>
-                Book a Shipment
-            </h2>
+            <strong>$25–$50</strong>
 
             <p>
-                Provide your shipment information so the
-                appropriate delivery arrangements can be made.
+              Fast local deliveries for nearby destinations.
             </p>
 
-        </div>
+          </div>
 
-        <div class="shipment-card">
 
-            <form id="bookingForm">
+          <div class="rate-card tilt-card reveal">
 
-                <h3>
-                    Sender Information
-                </h3>
+            <span class="rate-number">02</span>
 
-                <div class="shipment-info">
+            <div class="rate-icon">↗</div>
 
-                    <div class="info-box">
+            <h3>Domestic U.S.</h3>
 
-                        <label for="senderName">
-                            Full Name
-                        </label>
-
-                        <input
-                            type="text"
-                            id="senderName"
-                            placeholder="Enter sender's full name"
-                            required>
-
-                    </div>
-
-                    <div class="info-box">
-
-                        <label for="senderPhone">
-                            Contact Number
-                        </label>
-
-                        <input
-                            type="tel"
-                            id="senderPhone"
-                            placeholder="Enter sender's phone number"
-                            required>
-
-                    </div>
-
-                </div>
-
-
-                <h3>
-                    Recipient Information
-                </h3>
-
-                <div class="shipment-info">
-
-                    <div class="info-box">
-
-                        <label for="recipientName">
-                            Full Name
-                        </label>
-
-                        <input
-                            type="text"
-                            id="recipientName"
-                            placeholder="Enter recipient's full name"
-                            required>
-
-                    </div>
-
-                    <div class="info-box">
-
-                        <label for="recipientPhone">
-                            Contact Number
-                        </label>
-
-                        <input
-                            type="tel"
-                            id="recipientPhone"
-                            placeholder="Enter recipient's phone number"
-                            required>
-
-                    </div>
-
-                </div>
-
-
-                <h3>
-                    Pickup & Destination
-                </h3>
-
-                <div class="shipment-info">
-
-                    <div class="info-box">
-
-                        <label for="bookingCountry">
-                            Pickup Country
-                        </label>
-
-                        <input
-                            type="text"
-                            id="bookingCountry"
-                            placeholder="Enter pickup country"
-                            required>
-
-                    </div>
-
-                    <div class="info-box">
-
-                        <label for="pickupAddress">
-                            Pickup Location
-                        </label>
-
-                        <input
-                            type="text"
-                            id="pickupAddress"
-                            placeholder="City / full pickup address"
-                            required>
-
-                    </div>
-
-                    <div class="info-box">
-
-                        <label for="bookingDestinationCountry">
-                            Destination Country
-                        </label>
-
-                        <input
-                            type="text"
-                            id="bookingDestinationCountry"
-                            placeholder="Enter destination country"
-                            required>
-
-                    </div>
-
-                    <div class="info-box">
-
-                        <label for="deliveryAddress">
-                            Delivery Address
-                        </label>
-
-                        <input
-                            type="text"
-                            id="deliveryAddress"
-                            placeholder="City / full delivery address"
-                            required>
-
-                    </div>
-
-                </div>
-
-
-                <h3>
-                    Package Information
-                </h3>
-
-                <div class="shipment-info">
-
-                    <div class="info-box">
-
-                        <label for="packageWeight">
-                            Package Weight (kg)
-                        </label>
-
-                        <input
-                            type="number"
-                            id="packageWeight"
-                            min="0.1"
-                            step="0.1"
-                            placeholder="e.g. 5"
-                            required>
-
-                    </div>
-
-                    <div class="info-box">
-
-                        <label for="packageDimensions">
-                            Package Dimensions
-                        </label>
-
-                        <input
-                            type="text"
-                            id="packageDimensions"
-                            placeholder="Length × Width × Height"
-                            required>
-
-                    </div>
-
-                    <div class="info-box">
-
-                        <label for="shippingMethod">
-                            Shipping Method
-                        </label>
-
-                        <select
-                            id="shippingMethod"
-                            required>
-
-                            <option value="">
-                                Select shipping method
-                            </option>
-
-                            <option>Standard</option>
-                            <option>Economy</option>
-                            <option>Express</option>
-                            <option>Priority Express</option>
-                            <option>Same-Day</option>
-                            <option>Next-Day</option>
-                            <option>Air Freight</option>
-                            <option>Sea Freight</option>
-                            <option>
-                                Door-to-Door Worldwide Shipping
-                            </option>
-
-                        </select>
-
-                    </div>
-
-                    <div class="info-box">
-
-                        <label for="pickupDate">
-                            Preferred Delivery Date
-                        </label>
-
-                        <input
-                            type="date"
-                            id="pickupDate"
-                            required>
-
-                    </div>
-
-                </div>
-
-
-                <div class="info-box">
-
-                    <label for="packageDescription">
-                        Package Description
-                    </label>
-
-                    <textarea
-                        id="packageDescription"
-                        rows="4"
-                        placeholder="Describe the items being shipped..."
-                        required></textarea>
-
-                </div>
-
-
-                <div class="info-box">
-
-                    <label for="paymentMethod">
-                        Preferred Payment Method
-                    </label>
-
-                    <select id="paymentMethod">
-
-                        <option value="">
-                            Select payment method
-                        </option>
-
-                        <option>
-                            Visa / Mastercard
-                        </option>
-
-                        <option>
-                            American Express
-                        </option>
-
-                        <option>
-                            PayPal
-                        </option>
-
-                        <option>
-                            Apple Pay
-                        </option>
-
-                        <option>
-                            Google Pay
-                        </option>
-
-                        <option>
-                            ACH Bank Transfer
-                        </option>
-
-                        <option>
-                            Stripe
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="btn btn-primary">
-
-                    Submit Shipment Request
-
-                </button>
-
-            </form>
-
-            <div id="bookingResult"></div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- SERVICES -->
-
-<section class="section services-section" id="services">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                OUR SERVICES
-            </div>
-
-            <h2>
-                Complete Logistics Solutions
-            </h2>
+            <strong>$50–$120</strong>
 
             <p>
-                Shipping and logistics solutions designed for
-                individuals and businesses worldwide.
+              Reliable shipping across domestic destinations.
             </p>
 
-        </div>
+          </div>
 
 
-        <div class="services">
+          <div class="rate-card tilt-card reveal">
 
+            <span class="rate-number">03</span>
 
-            <div class="service-card">
+            <div class="rate-icon">◎</div>
 
-                <img
-                    src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=85"
-                    alt="Same-day delivery logistics"
-                    loading="lazy">
+            <h3>International Standard</h3>
 
-                <div class="service-content">
-
-                    <span class="service-number">
-                        01
-                    </span>
-
-                    <h3>
-                        Same-Day Delivery
-                    </h3>
-
-                    <p>
-                        Fast delivery solutions for shipments
-                        requiring same-day transportation.
-                    </p>
-
-                    <a href="#booking" class="btn">
-                        Book Shipment
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=1000&q=85"
-                    alt="Express courier logistics"
-                    loading="lazy">
-
-                <div class="service-content">
-
-                    <span class="service-number">
-                        02
-                    </span>
-
-                    <h3>
-                        Express Courier
-                    </h3>
-
-                    <p>
-                        Express courier solutions for packages
-                        requiring fast and dependable delivery.
-                    </p>
-
-                    <a href="#booking" class="btn">
-                        Book Shipment
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d8?auto=format&fit=crop&w=1000&q=85"
-                    alt="Door-to-door delivery"
-                    loading="lazy">
-
-                <div class="service-content">
-
-                    <span class="service-number">
-                        03
-                    </span>
-
-                    <h3>
-                        Door-to-Door Delivery
-                    </h3>
-
-                    <p>
-                        Convenient transportation from the pickup
-                        location directly to the recipient.
-                    </p>
-
-                    <a href="#booking" class="btn">
-                        Book Shipment
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1000&q=85"
-                    alt="Interstate shipping logistics"
-                    loading="lazy">
-
-                <div class="service-content">
-
-                    <span class="service-number">
-                        04
-                    </span>
-
-                    <h3>
-                        Interstate Shipping
-                    </h3>
-
-                    <p>
-                        Reliable shipping solutions for
-                        transportation between U.S. states.
-                    </p>
-
-                    <a href="#booking" class="btn">
-                        Book Shipment
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=85"
-                    alt="International air cargo"
-                    loading="lazy">
-
-                <div class="service-content">
-
-                    <span class="service-number">
-                        05
-                    </span>
-
-                    <h3>
-                        International Shipping
-                    </h3>
-
-                    <p>
-                        Worldwide shipping solutions for
-                        international destinations.
-                    </p>
-
-                    <a href="#booking" class="btn">
-                        Book Shipment
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1586191582151-f73872dfd183?auto=format&fit=crop&w=1000&q=85"
-                    alt="Corporate logistics"
-                    loading="lazy">
-
-                <div class="service-content">
-
-                    <span class="service-number">
-                        06
-                    </span>
-
-                    <h3>
-                        Corporate Logistics
-                    </h3>
-
-                    <p>
-                        Logistics and shipping solutions for
-                        business and corporate requirements.
-                    </p>
-
-                    <a href="#booking" class="btn">
-                        Book Shipment
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1565610222536-ef125c59da2e?auto=format&fit=crop&w=1000&q=85"
-                    alt="Freight and cargo transportation"
-                    loading="lazy">
-
-                <div class="service-content">
-
-                    <span class="service-number">
-                        07
-                    </span>
-
-                    <h3>
-                        Freight & Cargo
-                    </h3>
-
-                    <p>
-                        Freight and cargo transportation solutions
-                        for larger and heavier consignments.
-                    </p>
-
-                    <a href="#booking" class="btn">
-                        Book Shipment
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1000&q=85"
-                    alt="E-commerce fulfillment warehouse"
-                    loading="lazy">
-
-                <div class="service-content">
-
-                    <span class="service-number">
-                        08
-                    </span>
-
-                    <h3>
-                        E-commerce Fulfillment
-                    </h3>
-
-                    <p>
-                        Shipping and fulfillment support for
-                        e-commerce businesses and their customers.
-                    </p>
-
-                    <a href="#booking" class="btn">
-                        Book Shipment
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1000&q=85"
-                    alt="Shipment tracking logistics"
-                    loading="lazy">
-
-                <div class="service-content">
-
-                    <span class="service-number">
-                        09
-                    </span>
-
-                    <h3>
-                        Shipment Tracking
-                    </h3>
-
-                    <p>
-                        Track shipment progress and stay informed
-                        throughout the delivery process.
-                    </p>
-
-                    <a href="#tracking" class="btn">
-                        Track Shipment
-                    </a>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- WHY CHOOSE US -->
-
-<section class="section why-section" id="why-us">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                WHY SWIFT DELIVERY
-            </div>
-
-            <h2>
-                Built Around Your Shipment
-            </h2>
+            <strong>$100–$250</strong>
 
             <p>
-                Fast, secure and dependable logistics solutions
-                from pickup to final destination.
+              Cost-effective international shipping solutions.
             </p>
+
+          </div>
+
+
+          <div class="rate-card tilt-card reveal featured-rate">
+
+            <span class="rate-number">04</span>
+
+            <div class="rate-icon">✦</div>
+
+            <h3>International Express</h3>
+
+            <strong>$200–$500</strong>
+
+            <p>
+              Priority international shipping for time-sensitive packages.
+            </p>
+
+          </div>
+
+
+          <div class="rate-card tilt-card reveal">
+
+            <span class="rate-number">05</span>
+
+            <div class="rate-icon">▣</div>
+
+            <h3>Heavy / Urgent</h3>
+
+            <strong>$500+</strong>
+
+            <p>
+              Specialized solutions for heavy or urgent shipments.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <p class="rates-note">
+          Final prices depend on weight, dimensions, destination and delivery speed.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BOOKING
+    ========================== -->
+
+    <section class="section booking-section" id="booking">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <span class="eyebrow">BOOK A SHIPMENT</span>
+
+          <h2>
+            Ship With
+            <span>Confidence.</span>
+          </h2>
+
+          <p>
+            Provide your shipment details and our team will process your request.
+          </p>
+
+        </div>
+
+
+        <div class="form-shell glass-card reveal">
+
+          <form id="bookingForm">
+
+            <div class="form-section-title">
+              <span>01</span>
+              Sender Information
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-group">
+
+                <label for="senderName">Sender Name</label>
+
+                <input
+                  type="text"
+                  id="senderName"
+                  name="sender_name"
+                  placeholder="Full name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="senderEmail">Sender Email</label>
+
+                <input
+                  type="email"
+                  id="senderEmail"
+                  name="sender_email"
+                  placeholder="Email address"
+                  required
+                >
+
+              </div>
+
+            </div>
+
+
+            <div class="form-section-title">
+              <span>02</span>
+              Recipient Information
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-group">
+
+                <label for="recipientName">Recipient Name</label>
+
+                <input
+                  type="text"
+                  id="recipientName"
+                  name="recipient_name"
+                  placeholder="Full name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="recipientPhone">Recipient Phone</label>
+
+                <input
+                  type="tel"
+                  id="recipientPhone"
+                  name="recipient_phone"
+                  placeholder="Phone number"
+                  required
+                >
+
+              </div>
+
+            </div>
+
+
+            <div class="form-section-title">
+              <span>03</span>
+              Shipment Details
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-group">
+
+                <label for="pickupLocation">Pickup Location</label>
+
+                <input
+                  type="text"
+                  id="pickupLocation"
+                  name="pickup_location"
+                  placeholder="Pickup address"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="destination">Destination</label>
+
+                <input
+                  type="text"
+                  id="destination"
+                  name="destination"
+                  placeholder="Delivery address"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="packageType">Package Type</label>
+
+                <select id="packageType" name="package_type" required>
+
+                  <option value="">Select package type</option>
+                  <option value="Document">Document</option>
+                  <option value="Small Parcel">Small Parcel</option>
+                  <option value="Medium Parcel">Medium Parcel</option>
+                  <option value="Large Parcel">Large Parcel</option>
+                  <option value="Fragile Item">Fragile Item</option>
+                  <option value="Heavy Cargo">Heavy Cargo</option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="packageWeight">Weight (kg)</label>
+
+                <input
+                  type="number"
+                  id="packageWeight"
+                  name="package_weight"
+                  min="0.1"
+                  step="0.1"
+                  placeholder="e.g. 2.5"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="pickupDate">Preferred Pickup Date</label>
+
+                <input
+                  type="date"
+                  id="pickupDate"
+                  name="pickup_date"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="paymentMethod">Payment Method</label>
+
+                <select id="paymentMethod" name="payment_method" required>
+
+                  <option value="">Select payment method</option>
+                  <option value="Visa / Mastercard">Visa / Mastercard</option>
+                  <option value="American Express">American Express</option>
+                  <option value="PayPal">PayPal</option>
+                  <option value="Apple Pay">Apple Pay</option>
+                  <option value="Google Pay">Google Pay</option>
+                  <option value="ACH">ACH</option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+
+            <button type="submit" class="btn btn-primary submit-button">
+              Submit Shipment Request
+              <span>→</span>
+            </button>
+
+            <div id="bookingResult" class="form-result"></div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+
+    <section class="section services-section" id="services">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <span class="eyebrow">OUR SERVICES</span>
+
+          <h2>
+            Logistics Built
+            <span>Around You.</span>
+          </h2>
+
+          <p>
+            Flexible delivery solutions for individuals, businesses and organizations.
+          </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+          <article class="service-card tilt-card reveal">
+
+            <div class="service-image">
+              <img
+                src="https://images.unsplash.com/photo-1586528116493-da8b4f0f6e5f?auto=format&fit=crop&w=900&q=85"
+                alt="Same-day delivery logistics"
+                loading="lazy"
+              >
+
+              <span>01</span>
+            </div>
+
+            <div class="service-content">
+
+              <span class="service-label">FAST DELIVERY</span>
+
+              <h3>Same-Day Delivery</h3>
+
+              <p>
+                Fast delivery solutions for urgent packages and time-sensitive shipments.
+              </p>
+
+              <a href="#booking" class="service-link">
+                Book Service →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="service-card tilt-card reveal">
+
+            <div class="service-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=900&q=85"
+                alt="Express courier service"
+                loading="lazy"
+              >
+
+              <span>02</span>
+
+            </div>
+
+            <div class="service-content">
+
+              <span class="service-label">PRIORITY</span>
+
+              <h3>Express Courier</h3>
+
+              <p>
+                Priority courier solutions designed to move important shipments quickly.
+              </p>
+
+              <a href="#booking" class="service-link">
+                Book Service →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="service-card tilt-card reveal">
+
+            <div class="service-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=900&q=85"
+                alt="Door-to-door delivery"
+                loading="lazy"
+              >
+
+              <span>03</span>
+
+            </div>
+
+            <div class="service-content">
+
+              <span class="service-label">CONVENIENCE</span>
+
+              <h3>Door-to-Door Delivery</h3>
+
+              <p>
+                From pickup to final destination, we make the delivery process simple.
+              </p>
+
+              <a href="#booking" class="service-link">
+                Book Service →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="service-card tilt-card reveal">
+
+            <div class="service-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d8?auto=format&fit=crop&w=900&q=85"
+                alt="Interstate shipping truck"
+                loading="lazy"
+              >
+
+              <span>04</span>
+
+            </div>
+
+            <div class="service-content">
+
+              <span class="service-label">DOMESTIC</span>
+
+              <h3>Interstate Shipping</h3>
+
+              <p>
+                Dependable shipping solutions for packages moving between states.
+              </p>
+
+              <a href="#booking" class="service-link">
+                Book Service →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="service-card tilt-card reveal">
+
+            <div class="service-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=900&q=85"
+                alt="International shipping containers"
+                loading="lazy"
+              >
+
+              <span>05</span>
+
+            </div>
+
+            <div class="service-content">
+
+              <span class="service-label">GLOBAL</span>
+
+              <h3>International Shipping</h3>
+
+              <p>
+                Global shipping solutions connecting shipments across borders.
+              </p>
+
+              <a href="#booking" class="service-link">
+                Book Service →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="service-card tilt-card reveal">
+
+            <div class="service-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=900&q=85"
+                alt="Corporate logistics"
+                loading="lazy"
+              >
+
+              <span>06</span>
+
+            </div>
+
+            <div class="service-content">
+
+              <span class="service-label">BUSINESS</span>
+
+              <h3>Corporate Logistics</h3>
+
+              <p>
+                Reliable logistics support for businesses with recurring shipping needs.
+              </p>
+
+              <a href="#quote" class="service-link">
+                Request Quote →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="service-card tilt-card reveal">
+
+            <div class="service-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1565610222536-ef125c59da2e?auto=format&fit=crop&w=900&q=85"
+                alt="Freight and cargo"
+                loading="lazy"
+              >
+
+              <span>07</span>
+
+            </div>
+
+            <div class="service-content">
+
+              <span class="service-label">CARGO</span>
+
+              <h3>Freight & Cargo</h3>
+
+              <p>
+                Flexible transportation solutions for larger and heavier shipments.
+              </p>
+
+              <a href="#quote" class="service-link">
+                Request Quote →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="service-card tilt-card reveal">
+
+            <div class="service-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=85"
+                alt="E-commerce fulfillment"
+                loading="lazy"
+              >
+
+              <span>08</span>
+
+            </div>
+
+            <div class="service-content">
+
+              <span class="service-label">E-COMMERCE</span>
+
+              <h3>E-commerce Fulfillment</h3>
+
+              <p>
+                Shipping support that helps online businesses move orders efficiently.
+              </p>
+
+              <a href="#quote" class="service-link">
+                Request Quote →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="service-card tilt-card reveal">
+
+            <div class="service-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=900&q=85"
+                alt="Shipment tracking"
+                loading="lazy"
+              >
+
+              <span>09</span>
+
+            </div>
+
+            <div class="service-content">
+
+              <span class="service-label">VISIBILITY</span>
+
+              <h3>Shipment Tracking</h3>
+
+              <p>
+                Easy shipment tracking helps you stay informed throughout the journey.
+              </p>
+
+              <a href="#tracking" class="service-link">
+                Track Shipment →
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         WHY CHOOSE US
+    ========================== -->
+
+    <section class="section why-section" id="why-us">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <span class="eyebrow">WHY SWIFT DELIVERY</span>
+
+          <h2>
+            Built For
+            <span>Reliability.</span>
+          </h2>
+
+          <p>
+            Every part of our service is designed around speed, security and dependable delivery.
+          </p>
 
         </div>
 
 
         <div class="why-grid">
 
+          <div class="why-card tilt-card reveal">
 
-            <div class="why-card">
+            <div class="why-icon">⚡</div>
 
-                <div class="why-icon">
-                    ⚡
-                </div>
+            <h3>Fast Delivery</h3>
 
-                <h3>
-                    Fast Delivery
-                </h3>
+            <p>
+              Efficient shipping options for urgent and everyday deliveries.
+            </p>
 
-                <p>
-                    Shipping options designed to help move
-                    packages efficiently and reliably.
-                </p>
-
-            </div>
+          </div>
 
 
-            <div class="why-card">
+          <div class="why-card tilt-card reveal">
 
-                <div class="why-icon">
-                    🔒
-                </div>
+            <div class="why-icon">◈</div>
 
-                <h3>
-                    Secure Shipping
-                </h3>
+            <h3>Secure Handling</h3>
 
-                <p>
-                    We focus on secure and dependable handling
-                    throughout the shipment journey.
-                </p>
+            <p>
+              Your shipment is handled with care throughout the delivery process.
+            </p>
 
-            </div>
+          </div>
 
 
-            <div class="why-card">
+          <div class="why-card tilt-card reveal">
 
-                <div class="why-icon">
-                    🌍
-                </div>
+            <div class="why-icon">◎</div>
 
-                <h3>
-                    Worldwide Coverage
-                </h3>
+            <h3>Global Reach</h3>
 
-                <p>
-                    Shipping and logistics solutions for
-                    destinations around the world.
-                </p>
+            <p>
+              Shipping solutions designed for domestic and international destinations.
+            </p>
 
-            </div>
+          </div>
 
 
-            <div class="why-card">
+          <div class="why-card tilt-card reveal">
 
-                <div class="why-icon">
-                    📍
-                </div>
+            <div class="why-icon">⌁</div>
 
-                <h3>
-                    Shipment Tracking
-                </h3>
+            <h3>Shipment Visibility</h3>
 
-                <p>
-                    Check shipment progress using your
-                    Swift Delivery tracking number.
-                </p>
+            <p>
+              Track your shipment and stay informed about its progress.
+            </p>
 
-            </div>
+          </div>
 
 
-            <div class="why-card">
+          <div class="why-card tilt-card reveal">
 
-                <div class="why-icon">
-                    🚚
-                </div>
+            <div class="why-icon">◫</div>
 
-                <h3>
-                    Multiple Shipping Options
-                </h3>
+            <h3>Flexible Solutions</h3>
 
-                <p>
-                    Choose from standard, express, freight,
-                    air, sea and other delivery options.
-                </p>
+            <p>
+              Shipping services can be adapted to different package and delivery needs.
+            </p>
 
-            </div>
+          </div>
 
 
-            <div class="why-card">
+          <div class="why-card tilt-card reveal">
 
-                <div class="why-icon">
-                    🕐
-                </div>
+            <div class="why-icon">24</div>
 
-                <h3>
-                    Available 24/7
-                </h3>
+            <h3>24/7 Support</h3>
 
-                <p>
-                    Our business operates around the clock
-                    to support your shipping needs.
-                </p>
+            <p>
+              Assistance is available around the clock for your logistics needs.
+            </p>
 
-            </div>
-
+          </div>
 
         </div>
 
-    </div>
+      </div>
 
-</section>
-
-
-<!-- ABOUT -->
-
-<section class="section about" id="about">
-
-    <div class="container">
-
-        <div class="about-content">
+    </section>
 
 
-            <div class="about-text">
+    <!-- =========================
+         ABOUT
+    ========================== -->
 
-                <div class="section-label">
-                    ABOUT SWIFT DELIVERY LOGISTICS
-                </div>
+    <section class="section about-section" id="about">
 
-                <h2>
-                    Your Trusted Partner
-                    in Global Logistics
-                </h2>
+      <div class="container about-grid">
 
-                <p>
-                    Swift Delivery Logistics provides fast,
-                    secure, and reliable shipping and delivery
-                    solutions for individuals and businesses.
-                </p>
+        <div class="about-image-wrap reveal">
 
-                <p>
-                    We make every shipment simple, efficient,
-                    and dependable—from pickup to final destination.
-                </p>
+          <div class="about-image-glow"></div>
 
-                <p>
-                    Swift Delivery Logistics is a trusted
-                    U.S.-based global logistics company providing
-                    fast, secure, and reliable worldwide shipping
-                    and delivery solutions for individuals and businesses.
-                </p>
+          <img
+            src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1200&q=85"
+            alt="Logistics transportation"
+            loading="lazy"
+          >
 
+          <div class="about-floating-card">
 
-                <div class="about-features">
+            <strong>SDL</strong>
 
-                    <div>
-                        <strong>✓</strong>
-                        <span>Fast shipping solutions</span>
-                    </div>
+            <span>
+              Moving Your World Swiftly.
+            </span>
 
-                    <div>
-                        <strong>✓</strong>
-                        <span>Secure and reliable delivery</span>
-                    </div>
-
-                    <div>
-                        <strong>✓</strong>
-                        <span>Worldwide shipping</span>
-                    </div>
-
-                    <div>
-                        <strong>✓</strong>
-                        <span>Individuals & businesses</span>
-                    </div>
-
-                </div>
-
-
-                <a href="#booking" class="btn btn-primary">
-                    Book a Shipment
-                </a>
-
-            </div>
-
-
-            <div class="about-image-wrapper">
-
-                <img
-                    class="about-image"
-                    src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=1200&q=85"
-                    alt="Modern logistics warehouse and packages"
-                    loading="lazy">
-
-                <div class="about-image-badge">
-
-                    <strong>FAST</strong>
-                    <span>RELIABLE</span>
-                    <span>WORLDWIDE</span>
-
-                </div>
-
-            </div>
+          </div>
 
         </div>
 
-    </div>
 
-</section>
+        <div class="about-content reveal">
+
+          <span class="eyebrow">ABOUT US</span>
+
+          <h2>
+            Logistics That
+            <span>Moves With You.</span>
+          </h2>
+
+          <p>
+            Swift Delivery Logistics provides fast, secure, and reliable
+            shipping and delivery solutions for individuals and businesses.
+          </p>
+
+          <p>
+            We make every shipment simple, efficient, and dependable —
+            from pickup to final destination.
+          </p>
 
 
-<!-- PAYMENT -->
-
-<section class="section payment-section">
-
-    <div class="container">
-
-        <div class="payment-content">
+          <div class="about-points">
 
             <div>
-
-                <div class="section-label">
-                    PAYMENT OPTIONS
-                </div>
-
-                <h2>
-                    Convenient Payment Methods
-                </h2>
-
-                <p>
-                    Swift Delivery Logistics accepts the following
-                    payment methods for applicable shipping services.
-                </p>
-
+              <span>✓</span>
+              <p>Fast and dependable delivery solutions</p>
             </div>
 
-
-            <div class="payment-methods">
-
-                <div>
-                    💳
-                    <span>Visa / Mastercard</span>
-                </div>
-
-                <div>
-                    💳
-                    <span>American Express</span>
-                </div>
-
-                <div>
-                    🅿️
-                    <span>PayPal</span>
-                </div>
-
-                <div>
-                    
-                    <span>Apple Pay</span>
-                </div>
-
-                <div>
-                    G
-                    <span>Google Pay</span>
-                </div>
-
-                <div>
-                    🏦
-                    <span>ACH Bank Transfer</span>
-                </div>
-
-                <div>
-                    💠
-                    <span>Stripe</span>
-                </div>
-
+            <div>
+              <span>✓</span>
+              <p>Flexible shipping options</p>
             </div>
+
+            <div>
+              <span>✓</span>
+              <p>Domestic and international services</p>
+            </div>
+
+            <div>
+              <span>✓</span>
+              <p>Customer-focused support</p>
+            </div>
+
+          </div>
+
+
+          <a href="#contact" class="btn btn-primary">
+            Talk To Our Team
+            <span>→</span>
+          </a>
 
         </div>
 
-    </div>
+      </div>
 
-</section>
+    </section>
 
 
-<!-- FAQ -->
+    <!-- =========================
+         PAYMENT
+    ========================== -->
 
-<section class="section faq-section" id="faq">
+    <section class="section payment-section">
 
-    <div class="container">
+      <div class="container">
 
-        <div class="section-heading">
+        <div class="section-heading reveal">
 
-            <div class="section-label">
-                FAQ
+          <span class="eyebrow">PAYMENT OPTIONS</span>
+
+          <h2>
+            Convenient Ways
+            <span>To Pay.</span>
+          </h2>
+
+          <p>
+            Choose from available payment methods when arranging your shipment.
+          </p>
+
+        </div>
+
+
+        <div class="payment-grid">
+
+          <div class="payment-method tilt-card reveal">
+            <strong>VISA</strong>
+            <span>Card Payment</span>
+          </div>
+
+          <div class="payment-method tilt-card reveal">
+            <strong>MC</strong>
+            <span>Mastercard</span>
+          </div>
+
+          <div class="payment-method tilt-card reveal">
+            <strong>AMEX</strong>
+            <span>American Express</span>
+          </div>
+
+          <div class="payment-method tilt-card reveal">
+            <strong>PayPal</strong>
+            <span>Online Payment</span>
+          </div>
+
+          <div class="payment-method tilt-card reveal">
+            <strong> Pay</strong>
+            <span>Apple Pay</span>
+          </div>
+
+          <div class="payment-method tilt-card reveal">
+            <strong>G Pay</strong>
+            <span>Google Pay</span>
+          </div>
+
+          <div class="payment-method tilt-card reveal">
+            <strong>ACH</strong>
+            <span>Bank Transfer</span>
+          </div>
+
+          <div class="payment-method tilt-card reveal">
+            <strong>STRIPE</strong>
+            <span>Secure Payments</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAQ
+    ========================== -->
+
+    <section class="section faq-section" id="faq">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <span class="eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+
+          <h2>
+            Questions?
+            <span>We've Got Answers.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="faq-list reveal">
+
+
+          <div class="faq-item">
+
+            <button class="faq-question" type="button">
+
+              <span>
+                How do I track my shipment?
+              </span>
+
+              <b>+</b>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <p>
+                Enter your shipment tracking number in the Track Shipment
+                section. If your tracking number is available in the system,
+                its current shipment information will be displayed.
+              </p>
+
             </div>
 
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question" type="button">
+
+              <span>
+                What shipping services do you offer?
+              </span>
+
+              <b>+</b>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <p>
+                Our services include same-day delivery, express courier,
+                door-to-door delivery, interstate shipping, international
+                shipping, corporate logistics, freight and cargo,
+                e-commerce fulfillment and shipment tracking.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question" type="button">
+
+              <span>
+                How much does shipping cost?
+              </span>
+
+              <b>+</b>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <p>
+                Shipping costs depend on factors such as package weight,
+                dimensions, destination and delivery speed. Starting rates
+                are displayed in our Shipping Rates section.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question" type="button">
+
+              <span>
+                Can I request a custom shipping quote?
+              </span>
+
+              <b>+</b>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <p>
+                Yes. Use the Get a Quote form to submit your shipment
+                requirements and our team can review the request.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question" type="button">
+
+              <span>
+                Do you handle international shipments?
+              </span>
+
+              <b>+</b>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <p>
+                Yes. International standard and express shipping options
+                are available for eligible destinations.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question" type="button">
+
+              <span>
+                How can I contact Swift Delivery Logistics?
+              </span>
+
+              <b>+</b>
+
+            </button>
+
+            <div class="faq-answer">
+
+              <p>
+                You can contact our team through the contact form,
+                WhatsApp or the phone and email details listed in the
+                Contact section.
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUOTE
+    ========================== -->
+
+    <section class="section quote-section" id="quote">
+
+      <div class="container">
+
+        <div class="quote-shell reveal">
+
+          <div class="quote-content">
+
+            <span class="eyebrow">GET A QUOTE</span>
+
             <h2>
-                Frequently Asked Questions
+              Let's Move Your
+              <span>Shipment.</span>
             </h2>
 
             <p>
-                Helpful information about shipping,
-                delivery and shipment tracking.
+              Tell us about your shipment and request a quote from
+              Swift Delivery Logistics.
             </p>
 
-        </div>
+            <div class="quote-mini-stats">
 
+              <div>
+                <strong>01</strong>
+                <span>Tell us what you're shipping</span>
+              </div>
 
-        <div class="faq-container">
+              <div>
+                <strong>02</strong>
+                <span>Provide pickup and destination</span>
+              </div>
 
-
-            <div class="faq-item">
-
-                <button
-                    class="faq-question"
-                    type="button">
-
-                    How can I track my shipment?
-
-                    <span>+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <p>
-                        Enter the tracking number provided by
-                        Swift Delivery Logistics in the Track
-                        Shipment section to check your shipment
-                        status.
-                    </p>
-
-                </div>
+              <div>
+                <strong>03</strong>
+                <span>Receive your shipping estimate</span>
+              </div>
 
             </div>
 
+          </div>
 
-            <div class="faq-item">
 
-                <button
-                    class="faq-question"
-                    type="button">
-
-                    Do you offer international shipping?
-
-                    <span>+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <p>
-                        Yes. Swift Delivery Logistics provides
-                        worldwide shipping solutions. Final
-                        availability and pricing depend on the
-                        shipment details and destination.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="faq-item">
-
-                <button
-                    class="faq-question"
-                    type="button">
-
-                    How is the shipping price determined?
-
-                    <span>+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <p>
-                        Final pricing is based on the shipment's
-                        weight, dimensions, destination and
-                        selected delivery speed.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="faq-item">
-
-                <button
-                    class="faq-question"
-                    type="button">
-
-                    What shipping methods are available?
-
-                    <span>+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <p>
-                        Available shipping methods include
-                        Standard, Economy, Express, Priority
-                        Express, Same-Day, Next-Day, Air Freight,
-                        Sea Freight and Door-to-Door Worldwide Shipping.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="faq-item">
-
-                <button
-                    class="faq-question"
-                    type="button">
-
-                    What information is required to book a shipment?
-
-                    <span>+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <p>
-                        A shipment booking requires sender and
-                        recipient information, pickup and delivery
-                        details, package description, weight,
-                        dimensions, preferred date and destination
-                        information.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="faq-item">
-
-                <button
-                    class="faq-question"
-                    type="button">
-
-                    How can I contact Swift Delivery Logistics?
-
-                    <span>+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <p>
-                        You can contact Swift Delivery Logistics
-                        by phone, WhatsApp or email. Our business
-                        hours are 24/7.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- QUOTE -->
-
-<section class="section quote-section" id="quote">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                GET A QUOTE
-            </div>
-
-            <h2>
-                Request a Shipping Quote
-            </h2>
-
-            <p>
-                Tell us about your shipment so the applicable
-                shipping price can be determined.
-            </p>
-
-        </div>
-
-
-        <div class="shipment-card">
+          <div class="quote-form-wrap">
 
             <form id="quoteForm">
 
+              <div class="form-group">
 
-                <div class="shipment-info">
+                <label for="quoteName">Full Name</label>
 
-                    <div class="info-box">
+                <input
+                  type="text"
+                  id="quoteName"
+                  name="name"
+                  placeholder="Your full name"
+                  required
+                >
 
-                        <label for="quoteName">
-                            Full Name
-                        </label>
+              </div>
 
-                        <input
-                            type="text"
-                            id="quoteName"
-                            placeholder="Enter your full name"
-                            required>
 
-                    </div>
+              <div class="form-group">
 
+                <label for="quoteEmail">Email Address</label>
 
-                    <div class="info-box">
+                <input
+                  type="email"
+                  id="quoteEmail"
+                  name="email"
+                  placeholder="Your email"
+                  required
+                >
 
-                        <label for="quoteEmail">
-                            Email Address
-                        </label>
+              </div>
 
-                        <input
-                            type="email"
-                            id="quoteEmail"
-                            placeholder="Enter your email"
-                            required>
 
-                    </div>
+              <div class="form-group">
 
+                <label for="quotePhone">Phone Number</label>
 
-                    <div class="info-box">
+                <input
+                  type="tel"
+                  id="quotePhone"
+                  name="phone"
+                  placeholder="Your phone number"
+                  required
+                >
 
-                        <label for="quotePhone">
-                            Phone Number
-                        </label>
+              </div>
 
-                        <input
-                            type="tel"
-                            id="quotePhone"
-                            placeholder="Enter your phone number"
-                            required>
 
-                    </div>
+              <div class="form-group">
 
+                <label for="quoteDetails">Shipment Details</label>
 
-                    <div class="info-box">
+                <textarea
+                  id="quoteDetails"
+                  name="shipment_details"
+                  rows="5"
+                  placeholder="Tell us about your package, pickup location, destination and preferred delivery speed."
+                  required
+                ></textarea>
 
-                        <label for="quoteWeight">
-                            Package Weight (kg)
-                        </label>
+              </div>
 
-                        <input
-                            type="number"
-                            id="quoteWeight"
-                            min="0.1"
-                            step="0.1"
-                            placeholder="e.g. 10"
-                            required>
 
-                    </div>
+              <button type="submit" class="btn btn-primary">
+                Request Quote
+                <span>→</span>
+              </button>
 
-
-                    <div class="info-box">
-
-                        <label for="quoteDimensions">
-                            Package Dimensions
-                        </label>
-
-                        <input
-                            type="text"
-                            id="quoteDimensions"
-                            placeholder="Length × Width × Height"
-                            required>
-
-                    </div>
-
-                </div>
-
-
-                <div class="shipment-info">
-
-
-                    <div class="info-box">
-
-                        <label for="quoteOrigin">
-                            Origin
-                        </label>
-
-                        <input
-                            type="text"
-                            id="quoteOrigin"
-                            placeholder="Country / city"
-                            required>
-
-                    </div>
-
-
-                    <div class="info-box">
-
-                        <label for="quoteDestination">
-                            Destination
-                        </label>
-
-                        <input
-                            type="text"
-                            id="quoteDestination"
-                            placeholder="Country / city"
-                            required>
-
-                    </div>
-
-
-                    <div class="info-box">
-
-                        <label for="packageType">
-                            Package Type
-                        </label>
-
-                        <select
-                            id="packageType"
-                            required>
-
-                            <option value="">
-                                Select package type
-                            </option>
-
-                            <option>
-                                Documents
-                            </option>
-
-                            <option>
-                                Small Package
-                            </option>
-
-                            <option>
-                                Large Package
-                            </option>
-
-                            <option>
-                                Commercial Goods
-                            </option>
-
-                            <option>
-                                Freight
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="info-box">
-
-                        <label for="quoteMethod">
-                            Shipping Method
-                        </label>
-
-                        <select
-                            id="quoteMethod"
-                            required>
-
-                            <option value="">
-                                Select shipping method
-                            </option>
-
-                            <option>Standard</option>
-                            <option>Economy</option>
-                            <option>Express</option>
-                            <option>Priority Express</option>
-                            <option>Same-Day</option>
-                            <option>Next-Day</option>
-                            <option>Air Freight</option>
-                            <option>Sea Freight</option>
-
-                            <option>
-                                Door-to-Door Worldwide Shipping
-                            </option>
-
-                        </select>
-
-                    </div>
-
-                </div>
-
-
-                <div class="info-box">
-
-                    <label for="quoteNotes">
-                        Additional Information
-                    </label>
-
-                    <textarea
-                        id="quoteNotes"
-                        rows="5"
-                        placeholder="Provide any additional information about your shipment..."></textarea>
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="btn btn-primary">
-
-                    Request Quote
-
-                </button>
+              <div id="quoteResult" class="form-result"></div>
 
             </form>
 
-
-            <div id="quoteResult"></div>
+          </div>
 
         </div>
 
-    </div>
+      </div>
 
-</section>
+    </section>
 
 
-<!-- CONTACT -->
+    <!-- =========================
+         CONTACT
+    ========================== -->
 
-<section class="section cta" id="contact">
+    <section class="section contact-section" id="contact">
 
-    <div class="container">
+      <div class="container">
 
-        <div class="contact-layout">
+        <div class="section-heading light reveal">
 
+          <span class="eyebrow">CONTACT US</span>
 
-            <div class="contact-info">
+          <h2>
+            Let's Talk
+            <span>Logistics.</span>
+          </h2>
 
-                <div class="section-label">
-                    CONTACT US
-                </div>
-
-                <h2>
-                    Let's Move Your Shipment
-                </h2>
-
-                <p>
-                    Have a question about shipping, tracking,
-                    freight or delivery? Contact Swift Delivery
-                    Logistics and our team will assist you.
-                </p>
-
-
-                <div class="contact-details">
-
-
-                    <a
-                        href="tel:08068782377"
-                        class="contact-detail">
-
-                        <span>📞</span>
-
-                        <div>
-                            <small>Phone</small>
-                            <strong>
-                                08068782377
-                            </strong>
-                        </div>
-
-                    </a>
-
-
-                    <a
-                        href="https://wa.me/2348068782377"
-                        target="_blank"
-                        rel="noopener"
-                        class="contact-detail">
-
-                        <span>💬</span>
-
-                        <div>
-                            <small>WhatsApp</small>
-                            <strong>
-                                08068782377
-                            </strong>
-                        </div>
-
-                    </a>
-
-
-                    <a
-                        href="mailto:yoryoryslyoryor@gmail.com"
-                        class="contact-detail">
-
-                        <span>✉️</span>
-
-                        <div>
-                            <small>Email</small>
-                            <strong>
-                                yoryoryslyoryor@gmail.com
-                            </strong>
-                        </div>
-
-                    </a>
-
-
-                    <div class="contact-detail">
-
-                        <span>📍</span>
-
-                        <div>
-
-                            <small>
-                                Address
-                            </small>
-
-                            <strong>
-                                1230 Airways Blvd<br>
-                                Memphis, TN 38114
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="contact-detail">
-
-                        <span>🕐</span>
-
-                        <div>
-
-                            <small>
-                                Business Hours
-                            </small>
-
-                            <strong>
-                                24/7
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-            <div class="contact-form-wrapper">
-
-                <h3>
-                    Send Us a Message
-                </h3>
-
-                <p>
-                    Complete the form below and our team
-                    will receive your message.
-                </p>
-
-
-                <form
-                    id="contactForm"
-                    action="https://formspree.io/f/xeaqljvk"
-                    method="POST">
-
-
-                    <div class="shipment-info">
-
-
-                        <div class="info-box">
-
-                            <label for="contactName">
-                                Full Name
-                            </label>
-
-                            <input
-                                type="text"
-                                id="contactName"
-                                name="name"
-                                placeholder="Enter your name"
-                                required>
-
-                        </div>
-
-
-                        <div class="info-box">
-
-                            <label for="contactEmail">
-                                Email Address
-                            </label>
-
-                            <input
-                                type="email"
-                                id="contactEmail"
-                                name="email"
-                                placeholder="Enter your email"
-                                required>
-
-                        </div>
-
-
-                        <div class="info-box">
-
-                            <label for="contactPhone">
-                                Phone Number
-                            </label>
-
-                            <input
-                                type="tel"
-                                id="contactPhone"
-                                name="phone"
-                                placeholder="Enter your phone number"
-                                required>
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="info-box">
-
-                        <label for="contactMessage">
-                            Message
-                        </label>
-
-                        <textarea
-                            id="contactMessage"
-                            name="message"
-                            rows="6"
-                            placeholder="How can we help you?"
-                            required></textarea>
-
-                    </div>
-
-
-                    <button
-                        type="submit"
-                        class="btn btn-primary">
-
-                        Send Message
-
-                    </button>
-
-
-                </form>
-
-
-                <div id="contactResult"></div>
-
-            </div>
-
+          <p>
+            Have a question, shipment request or business inquiry?
+            Our team is ready to help.
+          </p>
 
         </div>
 
-    </div>
 
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <div class="container">
-
-        <div class="footer-grid">
+        <div class="contact-grid">
 
 
-            <div class="footer-brand">
+          <div class="contact-details reveal">
 
-                <a href="#home" class="logo">
+            <div class="contact-detail tilt-card">
 
-                    <span class="logo-mark">
-                        SDL
-                    </span>
+              <span class="contact-icon">☎</span>
 
-                    <span class="logo-text">
-                        Swift <span>Delivery</span>
-                    </span>
-
-                </a>
-
-                <p>
-                    Fast, secure and reliable shipping and
-                    delivery solutions for individuals and
-                    businesses worldwide.
-                </p>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Services
-                </h4>
-
-                <a href="#services">
-                    Same-Day Delivery
-                </a>
-
-                <a href="#services">
-                    Express Courier
-                </a>
-
-                <a href="#services">
-                    International Shipping
-                </a>
-
-                <a href="#services">
-                    Freight & Cargo
-                </a>
-
-                <a href="#services">
-                    E-commerce Fulfillment
-                </a>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Quick Links
-                </h4>
-
-                <a href="#tracking">
-                    Track Shipment
-                </a>
-
-                <a href="#quote">
-                    Get a Quote
-                </a>
-
-                <a href="#booking">
-                    Book a Shipment
-                </a>
-
-                <a href="#faq">
-                    FAQ
-                </a>
-
-                <a href="#contact">
-                    Contact
-                </a>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Contact
-                </h4>
+              <div>
+                <small>CALL US</small>
 
                 <a href="tel:08068782377">
-                    08068782377
+                  08068782377
                 </a>
-
-                <a href="mailto:yoryoryslyoryor@gmail.com">
-                    yoryoryslyoryor@gmail.com
-                </a>
-
-                <span>
-                    1230 Airways Blvd<br>
-                    Memphis, TN 38114
-                </span>
-
-                <span>
-                    Open 24/7
-                </span>
+              </div>
 
             </div>
 
 
+            <div class="contact-detail tilt-card">
+
+              <span class="contact-icon">◉</span>
+
+              <div>
+                <small>WHATSAPP</small>
+
+                <a
+                  href="https://wa.me/2348068782377"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Chat With Us
+                </a>
+              </div>
+
+            </div>
+
+
+            <div class="contact-detail tilt-card">
+
+              <span class="contact-icon">✉</span>
+
+              <div>
+                <small>EMAIL</small>
+
+                <a href="mailto:yoryoryslyoryor@gmail.com">
+                  yoryoryslyoryor@gmail.com
+                </a>
+              </div>
+
+            </div>
+
+
+            <div class="contact-detail tilt-card">
+
+              <span class="contact-icon">⌖</span>
+
+              <div>
+                <small>ADDRESS</small>
+
+                <p>
+                  1230 Airways Blvd,<br>
+                  Memphis, TN 38114
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="contact-detail tilt-card">
+
+              <span class="contact-icon">◷</span>
+
+              <div>
+                <small>BUSINESS HOURS</small>
+
+                <p>24/7 Support</p>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="contact-form-shell reveal">
+
+            <form
+              id="contactForm"
+              action="https://formspree.io/f/xeaqljvk"
+              method="POST"
+            >
+
+              <div class="form-grid">
+
+                <div class="form-group">
+
+                  <label for="contactName">
+                    Name
+                  </label>
+
+                  <input
+                    type="text"
+                    id="contactName"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="form-group">
+
+                  <label for="contactEmail">
+                    Email
+                  </label>
+
+                  <input
+                    type="email"
+                    id="contactEmail"
+                    name="email"
+                    placeholder="Your email"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="contactSubject">
+                  Subject
+                </label>
+
+                <input
+                  type="text"
+                  id="contactSubject"
+                  name="subject"
+                  placeholder="How can we help?"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="contactMessage">
+                  Message
+                </label>
+
+                <textarea
+                  id="contactMessage"
+                  name="message"
+                  rows="7"
+                  placeholder="Write your message..."
+                  required
+                ></textarea>
+
+              </div>
+
+
+              <button type="submit" class="btn btn-primary">
+                Send Message
+                <span>→</span>
+              </button>
+
+              <div id="contactResult" class="form-result"></div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+
+          <a href="#home" class="logo">
+
+            <span class="logo-mark">
+              SDL
+            </span>
+
+            <span class="logo-text">
+
+              <strong>Swift</strong>
+
+              <small>
+                Delivery Logistics
+              </small>
+
+            </span>
+
+          </a>
+
+
+          <p>
+            Fast, secure and reliable shipping and delivery solutions
+            for individuals and businesses.
+          </p>
+
         </div>
 
 
-        <div class="footer-bottom">
+        <div class="footer-links">
 
-            <p>
-                © 2026
-                <strong>
-                    Swift Delivery Logistics
-                </strong>.
-                All rights reserved.
-            </p>
+          <div>
 
-            <p>
-                Fast • Reliable • Worldwide
-            </p>
+            <h4>Navigation</h4>
+
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#tracking">Track Shipment</a>
+            <a href="#quote">Get a Quote</a>
+
+          </div>
+
+
+          <div>
+
+            <h4>Company</h4>
+
+            <a href="#about">About</a>
+            <a href="#why-us">Why Choose Us</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+
+          </div>
+
+
+          <div>
+
+            <h4>Services</h4>
+
+            <a href="#booking">Book Shipment</a>
+            <a href="#services">Express Courier</a>
+            <a href="#services">International Shipping</a>
+            <a href="#services">Freight & Cargo</a>
+
+          </div>
 
         </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <p>
+          © 2026 Swift Delivery Logistics. All rights reserved.
+        </p>
+
+        <span>
+          Moving Your World Swiftly.
+        </span>
+
+      </div>
 
     </div>
 
-</footer>
+  </footer>
 
 
-<!-- WHATSAPP -->
+  <!-- =========================
+       FLOATING WHATSAPP
+  ========================== -->
 
-<a
+  <a
+    class="whatsapp-float"
     href="https://wa.me/2348068782377"
-    class="whatsapp-button"
     target="_blank"
     rel="noopener"
-    aria-label="Contact Swift Delivery Logistics on WhatsApp">
+    aria-label="Chat with Swift Delivery Logistics on WhatsApp"
+  >
+    <span>WA</span>
+  </a>
 
-    💬
 
-</a>
+  <!-- =========================
+       BACK TO TOP
+  ========================== -->
+
+  <button
+    class="back-to-top"
+    id="backToTop"
+    type="button"
+    aria-label="Back to top"
+  >
+    ↑
+  </button>
 
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
