@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Swift Delivery Logistics customer dashboard"
+  >
+
+  <title>Customer Dashboard | Swift Delivery Logistics</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="customer.css">
+</head>
+
+<body>
+
+  <!-- ================================
+       LOGIN SCREEN
+  ================================= -->
+
+  <section id="customerLogin" class="login-screen">
+
+    <div class="login-background">
+      <div class="login-orb orb-one"></div>
+      <div class="login-orb orb-two"></div>
+      <div class="login-grid"></div>
+    </div>
+
+    <div class="login-card">
+
+      <div class="login-brand">
+
+        <div class="brand-mark">
+          SDL
+        </div>
+
+        <div>
+          <strong>Swift Delivery</strong>
+          <span>Logistics</span>
+        </div>
+
+      </div>
+
+      <div class="login-heading">
+
+        <span class="eyebrow">
+          CUSTOMER PORTAL
+        </span>
+
+        <h1>
+          Welcome back.
+        </h1>
+
+        <p>
+          Sign in to manage your shipments and track deliveries.
+        </p>
+
+      </div>
+
+      <form id="customerLoginForm">
+
+        <div class="field">
+
+          <label for="customerEmail">
+            Email address
+          </label>
+
+          <input
+            type="email"
+            id="customerEmail"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+
+        </div>
+
+        <div class="field">
+
+          <label for="customerPassword">
+            Password
+          </label>
+
+          <div class="password-field">
+
+            <input
+              type="password"
+              id="customerPassword"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            >
+
+            <button
+              type="button"
+              id="togglePassword"
+              class="password-toggle"
+              aria-label="Show password"
+            >
+              Show
+            </button>
+
+          </div>
+
+        </div>
+
+        <div
+          id="loginMessage"
+          class="form-message"
+          aria-live="polite"
+        ></div>
+
+        <button
+          type="submit"
+          class="primary-button login-button"
+          id="loginButton"
+        >
+          <span>Sign In</span>
+          <span class="button-arrow">→</span>
+        </button>
+
+      </form>
+
+      <div class="login-footer">
+
+        <span>Need help?</span>
+
+        <a
+          href="index.html#contact"
+        >
+          Contact Swift Delivery
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================================
+       CUSTOMER APPLICATION
+  ================================= -->
+
+  <div id="customerApp" class="customer-app hidden">
+
+    <!-- MOBILE OVERLAY -->
+    <div
+      id="sidebarOverlay"
+      class="sidebar-overlay"
+    ></div>
+
+
+    <!-- ================================
+         SIDEBAR
+    ================================= -->
+
+    <aside id="customerSidebar" class="customer-sidebar">
+
+      <div class="sidebar-top">
+
+        <div class="dashboard-brand">
+
+          <div class="brand-mark">
+            SDL
+          </div>
+
+          <div class="brand-copy">
+            <strong>Swift Delivery</strong>
+            <span>Customer Portal</span>
+          </div>
+
+        </div>
+
+        <button
+          id="closeSidebar"
+          class="mobile-close"
+          aria-label="Close menu"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <nav class="dashboard-nav">
+
+        <button
+          class="nav-item active"
+          data-section="overview"
+        >
+          <span class="nav-icon">⌂</span>
+          <span>Overview</span>
+        </button>
+
+        <button
+          class="nav-item"
+          data-section="shipments"
+        >
+          <span class="nav-icon">▣</span>
+          <span>My Shipments</span>
+        </button>
+
+        <button
+          class="nav-item"
+          data-section="tracking"
+        >
+          <span class="nav-icon">◎</span>
+          <span>Track Shipment</span>
+        </button>
+
+        <button
+          class="nav-item"
+          data-section="quotes"
+        >
+          <span class="nav-icon">◇</span>
+          <span>Quotes</span>
+        </button>
+
+        <button
+          class="nav-item"
+          data-section="account"
+        >
+          <span class="nav-icon">◉</span>
+          <span>My Account</span>
+        </button>
+
+      </nav>
+
+
+      <div class="sidebar-bottom">
+
+        <a
+          href="index.html"
+          class="website-link"
+        >
+          <span>←</span>
+          <span>Back to website</span>
+        </a>
+
+        <button
+          id="logoutButton"
+          class="logout-button"
+        >
+          <span>↪</span>
+          <span>Sign Out</span>
+        </button>
+
+      </div>
+
+    </aside>
+
+
+    <!-- ================================
+         MAIN CONTENT
+    ================================= -->
+
+    <main class="dashboard-main">
+
+      <!-- TOP BAR -->
+
+      <header class="dashboard-header">
+
+        <div class="header-left">
+
+          <button
+            id="openSidebar"
+            class="mobile-menu"
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+
+          <div>
+
+            <span class="header-label">
+              CUSTOMER PORTAL
+            </span>
+
+            <h2 id="pageTitle">
+              Overview
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="header-right">
+
+          <button
+            class="notification-button"
+            id="notificationButton"
+            aria-label="Notifications"
+          >
+            <span>♢</span>
+            <i></i>
+          </button>
+
+          <div class="customer-profile">
+
+            <div
+              class="profile-avatar"
+              id="profileAvatar"
+            >
+              Y
+            </div>
+
+            <div class="profile-details">
+
+              <strong id="headerCustomerName">
+                Customer
+              </strong>
+
+              <span>
+                Customer
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <!-- ================================
+           OVERVIEW
+      ================================= -->
+
+      <section
+        id="section-overview"
+        class="dashboard-section active-section"
+      >
+
+        <div class="welcome-card">
+
+          <div class="welcome-content">
+
+            <span class="eyebrow">
+              SWIFT DELIVERY LOGISTICS
+            </span>
+
+            <h1>
+              Welcome back,
+              <span id="welcomeName">
+                Customer
+              </span>.
+            </h1>
+
+            <p>
+              Everything you need to manage and track your deliveries
+              is right here.
+            </p>
+
+          </div>
+
+          <div class="welcome-visual">
+
+            <div class="orbit orbit-a"></div>
+            <div class="orbit orbit-b"></div>
+
+            <div class="package-visual">
+              <span>SDL</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- STAT CARDS -->
+
+        <div class="stats-grid">
+
+          <article class="stat-card">
+
+            <div class="stat-icon">
+              ▣
+            </div>
+
+            <div class="stat-info">
+
+              <span>
+                Total Shipments
+              </span>
+
+              <strong id="totalShipments">
+                0
+              </strong>
+
+            </div>
+
+          </article>
+
+
+          <article class="stat-card">
+
+            <div class="stat-icon active-icon">
+              ◉
+            </div>
+
+            <div class="stat-info">
+
+              <span>
+                In Transit
+              </span>
+
+              <strong id="activeShipments">
+                0
+              </strong>
+
+            </div>
+
+          </article>
+
+
+          <article class="stat-card">
+
+            <div class="stat-icon delivered-icon">
+              ✓
+            </div>
+
+            <div class="stat-info">
+
+              <span>
+                Delivered
+              </span>
+
+              <strong id="deliveredShipments">
+                0
+              </strong>
+
+            </div>
+
+          </article>
+
+
+          <article class="stat-card">
+
+            <div class="stat-icon quote-icon">
+              ◇
+            </div>
+
+            <div class="stat-info">
+
+              <span>
+                Active Quotes
+              </span>
+
+              <strong id="activeQuotes">
+                0
+              </strong>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <!-- QUICK TRACK -->
+
+        <div class="content-grid">
+
+          <div class="dashboard-card quick-track-card">
+
+            <div class="card-heading">
+
+              <div>
+
+                <span class="card-kicker">
+                  TRACKING
+                </span>
+
+                <h3>
+                  Track a shipment
+                </h3>
+
+              </div>
+
+              <span class="heading-icon">
+                ◎
+              </span>
+
+            </div>
+
+            <p>
+              Enter your tracking number to see the latest shipment
+              status and delivery information.
+            </p>
+
+            <form
+              id="quickTrackForm"
+              class="track-form"
+            >
+
+              <input
+                type="text"
+                id="quickTrackingNumber"
+                placeholder="e.g. SDL-10001"
+                autocomplete="off"
+                required
+              >
+
+              <button
+                type="submit"
+                class="primary-button"
+              >
+                Track
+                <span>→</span>
+              </button>
+
+            </form>
+
+            <div
+              id="quickTrackMessage"
+              class="track-message"
+            ></div>
+
+          </div>
+
+
+          <!-- ACCOUNT SUMMARY -->
+
+          <div class="dashboard-card account-summary">
+
+            <div class="card-heading">
+
+              <div>
+
+                <span class="card-kicker">
+                  ACCOUNT
+                </span>
+
+                <h3>
+                  Account details
+                </h3>
+
+              </div>
+
+              <button
+                class="text-button"
+                data-section-link="account"
+              >
+                Manage
+              </button>
+
+            </div>
+
+            <div class="account-row">
+
+              <div class="mini-avatar" id="miniAvatar">
+                Y
+              </div>
+
+              <div>
+
+                <strong id="summaryName">
+                  Customer
+                </strong>
+
+                <span id="summaryEmail">
+                  —
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="account-status">
+
+              <span class="status-dot"></span>
+
+              <span>
+                Account active
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- RECENT SHIPMENTS -->
+
+        <div class="dashboard-card">
+
+          <div class="card-heading">
+
+            <div>
+
+              <span class="card-kicker">
+                ACTIVITY
+              </span>
+
+              <h3>
+                Recent shipments
+              </h3>
+
+            </div>
+
+            <button
+              class="text-button"
+              data-section-link="shipments"
+            >
+              View all
+            </button>
+
+          </div>
+
+          <div
+            id="recentShipments"
+            class="shipment-list"
+          >
+
+            <div class="loading-state">
+              Loading shipments...
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================
+           SHIPMENTS
+      ================================= -->
+
+      <section
+        id="section-shipments"
+        class="dashboard-section"
+      >
+
+        <div class="section-intro">
+
+          <div>
+
+            <span class="eyebrow">
+              DELIVERY MANAGEMENT
+            </span>
+
+            <h1>
+              My Shipments
+            </h1>
+
+            <p>
+              View your shipment history and monitor current deliveries.
+            </p>
+
+          </div>
+
+          <button
+            class="secondary-button"
+            data-section-link="tracking"
+          >
+            Track shipment
+            <span>→</span>
+          </button>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+          <div class="table-toolbar">
+
+            <div class="search-box">
+
+              <span>⌕</span>
+
+              <input
+                type="search"
+                id="shipmentSearch"
+                placeholder="Search tracking number..."
+              >
+
+            </div>
+
+            <select id="shipmentStatusFilter">
+
+              <option value="all">
+                All statuses
+              </option>
+
+              <option value="Processing">
+                Processing
+              </option>
+
+              <option value="Picked Up">
+                Picked Up
+              </option>
+
+              <option value="In Transit">
+                In Transit
+              </option>
+
+              <option value="Out for Delivery">
+                Out for Delivery
+              </option>
+
+              <option value="Delivered">
+                Delivered
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div
+            id="shipmentsTable"
+            class="responsive-table"
+          >
+
+            <div class="loading-state">
+              Loading shipments...
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================
+           TRACKING
+      ================================= -->
+
+      <section
+        id="section-tracking"
+        class="dashboard-section"
+      >
+
+        <div class="section-intro">
+
+          <div>
+
+            <span class="eyebrow">
+              LIVE TRACKING
+            </span>
+
+            <h1>
+              Track Your Shipment
+            </h1>
+
+            <p>
+              Enter a tracking number to view the shipment journey.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="tracking-search-card">
+
+          <form id="trackingForm">
+
+            <div class="tracking-input">
+
+              <span>
+                ◎
+              </span>
+
+              <input
+                type="text"
+                id="trackingNumber"
+                placeholder="Enter tracking number"
+                required
+              >
+
+            </div>
+
+            <button
+              type="submit"
+              class="primary-button"
+              id="trackingButton"
+            >
+              Track Shipment
+              <span>→</span>
+            </button>
+
+          </form>
+
+          <div
+            id="trackingMessage"
+            class="track-message"
+          ></div>
+
+        </div>
+
+
+        <!-- TRACKING RESULT -->
+
+        <div
+          id="trackingResult"
+          class="tracking-result hidden"
+        >
+
+          <div class="tracking-result-header">
+
+            <div>
+
+              <span class="card-kicker">
+                SHIPMENT
+              </span>
+
+              <h2 id="trackingResultNumber">
+                SDL-00000
+              </h2>
+
+            </div>
+
+            <span
+              id="trackingResultStatus"
+              class="status-badge"
+            >
+              Processing
+            </span>
+
+          </div>
+
+
+          <div class="tracking-route">
+
+            <div class="route-point">
+
+              <span class="route-icon">
+                ●
+              </span>
+
+              <div>
+
+                <small>
+                  FROM
+                </small>
+
+                <strong id="trackingOrigin">
+                  —
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <div class="route-line">
+
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </div>
+
+
+            <div class="route-point">
+
+              <span class="route-icon destination">
+                ◆
+              </span>
+
+              <div>
+
+                <small>
+                  TO
+                </small>
+
+                <strong id="trackingDestination">
+                  —
+                </strong>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="tracking-details-grid">
+
+            <div class="detail-item">
+
+              <span>
+                Service
+              </span>
+
+              <strong id="trackingService">
+                —
+              </strong>
+
+            </div>
+
+            <div class="detail-item">
+
+              <span>
+                Package
+              </span>
+
+              <strong id="trackingPackage">
+                —
+              </strong>
+
+            </div>
+
+            <div class="detail-item">
+
+              <span>
+                Weight
+              </span>
+
+              <strong id="trackingWeight">
+                —
+              </strong>
+
+            </div>
+
+            <div class="detail-item">
+
+              <span>
+                Estimated delivery
+              </span>
+
+              <strong id="trackingDelivery">
+                —
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <!-- TIMELINE -->
+
+          <div class="tracking-timeline">
+
+            <div class="timeline-heading">
+
+              <span class="card-kicker">
+                SHIPMENT JOURNEY
+              </span>
+
+              <h3>
+                Delivery progress
+              </h3>
+
+            </div>
+
+
+            <div class="timeline">
+
+              <div
+                class="timeline-item"
+                data-status-step="Processing"
+              >
+
+                <div class="timeline-marker">
+                  ✓
+                </div>
+
+                <div class="timeline-content">
+
+                  <strong>
+                    Processing
+                  </strong>
+
+                  <span>
+                    Shipment information received.
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div
+                class="timeline-item"
+                data-status-step="Picked Up"
+              >
+
+                <div class="timeline-marker">
+                  ✓
+                </div>
+
+                <div class="timeline-content">
+
+                  <strong>
+                    Picked Up
+                  </strong>
+
+                  <span>
+                    Package collected from sender.
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div
+                class="timeline-item"
+                data-status-step="In Transit"
+              >
+
+                <div class="timeline-marker">
+                  ✓
+                </div>
+
+                <div class="timeline-content">
+
+                  <strong>
+                    In Transit
+                  </strong>
+
+                  <span>
+                    Shipment is moving toward its destination.
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div
+                class="timeline-item"
+                data-status-step="Out for Delivery"
+              >
+
+                <div class="timeline-marker">
+                  ✓
+                </div>
+
+                <div class="timeline-content">
+
+                  <strong>
+                    Out for Delivery
+                  </strong>
+
+                  <span>
+                    Shipment is with the delivery team.
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div
+                class="timeline-item"
+                data-status-step="Delivered"
+              >
+
+                <div class="timeline-marker">
+                  ✓
+                </div>
+
+                <div class="timeline-content">
+
+                  <strong>
+                    Delivered
+                  </strong>
+
+                  <span>
+                    Shipment successfully delivered.
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================
+           QUOTES
+      ================================= -->
+
+      <section
+        id="section-quotes"
+        class="dashboard-section"
+      >
+
+        <div class="section-intro">
+
+          <div>
+
+            <span class="eyebrow">
+              QUOTE HISTORY
+            </span>
+
+            <h1>
+              My Quotes
+            </h1>
+
+            <p>
+              Review quote requests submitted to Swift Delivery Logistics.
+            </p>
+
+          </div>
+
+          <a
+            href="index.html#quote"
+            class="secondary-button"
+          >
+            Request a Quote
+            <span>→</span>
+          </a>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+          <div
+            id="quotesList"
+            class="quote-list"
+          >
+
+            <div class="loading-state">
+              Loading quotes...
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================
+           ACCOUNT
+      ================================= -->
+
+      <section
+        id="section-account"
+        class="dashboard-section"
+      >
+
+        <div class="section-intro">
+
+          <div>
+
+            <span class="eyebrow">
+              ACCOUNT SETTINGS
+            </span>
+
+            <h1>
+              My Account
+            </h1>
+
+            <p>
+              Manage your customer account information.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="account-grid">
+
+          <!-- PROFILE -->
+
+          <div class="dashboard-card">
+
+            <div class="card-heading">
+
+              <div>
+
+                <span class="card-kicker">
+                  PROFILE
+                </span>
+
+                <h3>
+                  Personal information
+                </h3>
+
+              </div>
+
+            </div>
+
+
+            <form id="profileForm">
+
+              <div class="field">
+
+                <label for="accountName">
+                  Full name
+                </label>
+
+                <input
+                  type="text"
+                  id="accountName"
+                  disabled
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label for="accountEmail">
+                  Email address
+                </label>
+
+                <input
+                  type="email"
+                  id="accountEmail"
+                  disabled
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label for="accountPhone">
+                  Phone number
+                </label>
+
+                <input
+                  type="tel"
+                  id="accountPhone"
+                  placeholder="Not provided"
+                  disabled
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label for="accountAddress">
+                  Address
+                </label>
+
+                <textarea
+                  id="accountAddress"
+                  rows="3"
+                  placeholder="Not provided"
+                  disabled
+                ></textarea>
+
+              </div>
+
+            </form>
+
+          </div>
+
+
+          <!-- SUPPORT -->
+
+          <div class="dashboard-card support-card">
+
+            <div class="support-icon">
+              ?
+            </div>
+
+            <span class="card-kicker">
+              NEED ASSISTANCE?
+            </span>
+
+            <h3>
+              We're here to help.
+            </h3>
+
+            <p>
+              Have a question about your shipment, delivery,
+              payment or account?
+            </p>
+
+            <a
+              href="index.html#contact"
+              class="primary-button"
+            >
+              Contact Support
+              <span>→</span>
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================================
+           FOOTER
+      ================================= -->
+
+      <footer class="dashboard-footer">
+
+        <span>
+          © <span id="currentYear"></span>
+          Swift Delivery Logistics.
+        </span>
+
+        <span>
+          Fast • Reliable • Worldwide
+        </span>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+
+  <!-- ================================
+       NOTIFICATION PANEL
+  ================================= -->
+
+  <div
+    id="notificationPanel"
+    class="notification-panel hidden"
+  >
+
+    <div class="notification-header">
+
+      <strong>
+        Notifications
+      </strong>
+
+      <button id="closeNotifications">
+        ×
+      </button>
+
+    </div>
+
+    <div
+      id="notificationsList"
+      class="notifications-list"
+    >
+
+      <div class="empty-state">
+        No new notifications.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="customer.js"></script>
+
+</body>
+</html>
